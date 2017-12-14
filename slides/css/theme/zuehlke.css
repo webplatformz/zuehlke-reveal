@@ -109,7 +109,8 @@ img {
   border-radius: 2px;
   color: #00796B !important;
   padding: 0 4px;
-  font-size: 90%; }
+  font-size: 90%;
+  font-family: monospace; }
 
 .print-pdf .sub-section-slide h2 {
   opacity: 1; }
