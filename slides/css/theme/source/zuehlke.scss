@@ -131,8 +131,12 @@ img {
   }
 
   .deck-slide {
+    &.slide-background {
+      background: url("../../img/bg.png");
+      background-size: cover;
+    }
+
     text-align: left;
-    background-size: 200px auto;
 
     h1, h3 {
       letter-spacing: 0;
@@ -141,19 +145,11 @@ img {
     h1 {
       font-size: 2.1em;
       position: relative;
+      padding: 20px;
+      background: rgba(255,255,255,.8);
       margin-top: 4em;
-
-      &:before {
-        position: absolute;
-        content: '';
-        width: 180px;
-        height: 130px;
-        background-repeat: no-repeat;
-        background-size: 180px auto;
-        background-position: center;
-        top: -1.4em;
-        left: -1.2em;
-      }
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
     }
 
     h3 {
