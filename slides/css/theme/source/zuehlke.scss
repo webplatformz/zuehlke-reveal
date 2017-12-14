@@ -1,0 +1,242 @@
+/**
+ * Zühlke theme for reveal.js.
+ *
+ */
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600);
+
+@font-face {
+  font-family: "Zuehlke";
+  src: url("../../lib/font/zuehlke/zuehlke-webfont.eot?") format("eot"),
+  url("../../lib/font/zuehlke/zuehlke-webfont.woff2") format("woff2"),
+  url("../../lib/font/zuehlke/zuehlke-webfont.woff") format("woff"),
+  url("../../lib/font/zuehlke/zuehlke-webfont.ttf") format("truetype"),
+  url("../../lib/font/zuehlke/zuehlke-webfont.svg") format("svg");
+}
+
+$zuehlkeOrange: #ff820a;
+$zuehlkeOrangeDark: #e47000;
+$mainFont: 'Open Sans', sans-serif;
+$mainFontSize: 36px;
+$mainColor: #444444;
+$headingFont: 'Zuehlke', sans-serif;
+$headingColor: $zuehlkeOrange;
+$heading1Size: 3.5em;
+$heading2Size: 1.7em;
+$heading3Size: 1.25em;
+$heading4Size: 1em;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #eeeeee;
+$linkColor: $zuehlkeOrange;
+$linkColorHover: $zuehlkeOrangeDark;
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+img {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.window-background .present {
+  background-position-y: 0.5em;
+}
+
+.reveal {
+
+  .slides > section {
+    padding: 0;
+  }
+
+  h1, h2 {
+    font-weight: 800 !important;
+  }
+
+  h2 {
+    margin-bottom: 0.8em !important;
+    line-height: 1em !important;
+
+    code {
+      font-weight: normal;
+      background: transparent;
+    }
+  }
+
+  section {
+    img {
+      background: none !important;
+    }
+  }
+
+  p {
+    line-height: 1.4em;
+    margin-bottom: 1em;
+  }
+
+  ul, ol {
+    margin-top: 0.5em !important;
+    margin-bottom: 1em;
+  }
+
+  li {
+    margin-top: 0.8em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  pre {
+    box-shadow: none !important;
+    font-size: 0.7em !important;
+    word-wrap: normal !important;
+    code {
+      padding: 0.4em !important;
+      max-height: none !important;
+    }
+
+    .keyword {
+      color: #B38335;
+    }
+
+    .tag, .literal,
+    .apache .tag {
+      color: #3B7586;
+    }
+
+    .variable {
+      color: #666;
+    }
+
+    .string {
+      color: #B66666;
+    }
+    .title {
+      color: #3B7586;
+    }
+  }
+
+  .bv-slide {
+    img {
+      opacity: 0.4;
+
+      &:first-child {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  .deck-slide {
+    text-align: left;
+    background-size: 200px auto;
+
+    h1, h3 {
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: 2.1em;
+      position: relative;
+      margin-top: 4em;
+
+      &:before {
+        position: absolute;
+        content: '';
+        width: 180px;
+        height: 130px;
+        background-repeat: no-repeat;
+        background-size: 180px auto;
+        background-position: center;
+        top: -1.4em;
+        left: -1.2em;
+      }
+    }
+
+    h3 {
+      margin-top: 0.5em;
+      font-size: 1.1em;
+      text-indent: 0.1em;
+      // text-transform: uppercase;
+      line-height: 1.3em;
+    }
+  }
+
+  .img-slide {
+    h2 {
+      display: inline-block;
+      margin-top: 5em;
+      margin-left: -4em;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 0.5em;
+    }
+  }
+
+  .progress {
+    height: 0.25em;
+  }
+
+  .warn {
+    color: $zuehlkeOrange;
+  }
+  .code {
+    background: rgba(236, 239, 241, 0.56);
+    border-radius: 2px;
+    color: #00796B !important;
+    padding: 0 4px;
+    font-size: 90%;
+  }
+}
+
+.print-pdf {
+
+  .sub-section-slide {
+    h2 {
+      opacity: 1;
+    }
+  }
+
+  .reveal.none .slides section {
+    // padding-top: 300px!important;
+
+    &.sub-section-slide {
+      padding-top: 350px !important;
+    }
+
+    &.deck-slide {
+      padding-top: 0 !important;
+    }
+  }
+}
+
+table tbody {
+  th {
+    background: rgba(236, 239, 241, 0.24);
+    border-right: 1px solid #ECEFF1;
+    font-weight: 400;
+    border-bottom: 1px solid #ECEFF1;
+    padding: 16px 32px;
+    text-align: left;
+  }
+  td {
+    border-bottom: 1px solid #ECEFF1;
+    padding: 16px 32px;
+    text-align: left;
+  }
+}
+
+.tab {
+  display: none;
+  margin-top: -0.35em !important;
+
+  &.active {
+    display: block;
+  }
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
