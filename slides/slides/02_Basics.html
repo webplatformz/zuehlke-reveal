@@ -48,6 +48,54 @@
             </section>
         </section>
         <section>
+            <!-- Variable declaration -->
+            <section>
+                <h2>Variable declaration</h2>
+                <ul>
+                    <li>There are two different types of variables <span class="code">var</span>, <span class="code">let</span></li>
+                    <li>And a constant type <span class="code">const</span></li>
+                </ul>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        var x = 42;
+                        let y = 42;
+                        const z = 42;
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <!-- Syntax -->
+            <section>
+                <h2>Syntax</h2>
+                <h3>Comments</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        // line comment
+
+                        /*
+                            block comment
+                        */
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Syntax</h2>
+                <h3>Semicolons</h3>
+                <ul>
+                    <li>Semicolons are inserted automatically by the interpreter (Known as ASI - Automatic Semicolon Insertion)</li>
+                    <li>However, you should set them yourself to avoid wrong behaviour</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Syntax</h2>
+                <h3>Case sensitivity</h3>
+                <ul>
+                    <li>Variable names are case sensitive</li>
+                </ul>
+            </section>
+        </section>
+        <section>
             <!-- Flow Control -->
             <section>
                 <h2>Flow Control</h2>
@@ -201,17 +249,16 @@
                     </code>
                 </pre>
             </section>
-        </section>
-        <section>
-            <!-- Syntax -->
             <section>
-                <h2>Syntax</h2>
-            </section>
-        </section>
-        <section>
-            <!-- Variable declaration -->
-            <section>
-                <h2>Variable declaration</h2>
+                <h2>Truthy &amp; Falsy</h2>
+                <p>Shorthand for safe variable declaration:</p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        let x = undefined;
+
+                        ley y = x || 'default';
+                    </code>
+                </pre>
             </section>
         </section>
         <section>
