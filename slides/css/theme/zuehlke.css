@@ -112,6 +112,39 @@ img {
   font-size: 90%;
   font-family: monospace; }
 
+.reveal .badge-container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0; }
+  .reveal .badge-container .badge {
+    position: relative;
+    padding: 7px;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    opacity: .8; }
+    .reveal .badge-container .badge:not(:first-child) {
+      margin-top: 5px; }
+    .reveal .badge-container .badge.es6 {
+      background-color: #FA9B1E; }
+      .reveal .badge-container .badge.es6::before {
+        content: 'ES6'; }
+    .reveal .badge-container .badge.es5 {
+      background-color: #5AB7DB; }
+      .reveal .badge-container .badge.es5::before {
+        content: 'ES5'; }
+    .reveal .badge-container .badge.do {
+      background-color: #58C765; }
+      .reveal .badge-container .badge.do::before {
+        content: 'Do'; }
+    .reveal .badge-container .badge.dont {
+      background-color: #DE3E41; }
+      .reveal .badge-container .badge.dont::before {
+        content: "Don't"; }
+
 .print-pdf .sub-section-slide h2 {
   opacity: 1; }
 

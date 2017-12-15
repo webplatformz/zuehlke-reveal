@@ -11,14 +11,18 @@
 @font-face {
   font-family: "Zuehlke";
   src: url("../../lib/font/zuehlke/zuehlke-webfont.eot?") format("eot"),
-  url("../../lib/font/zuehlke/zuehlke-webfont.woff2") format("woff2"),
-  url("../../lib/font/zuehlke/zuehlke-webfont.woff") format("woff"),
-  url("../../lib/font/zuehlke/zuehlke-webfont.ttf") format("truetype"),
-  url("../../lib/font/zuehlke/zuehlke-webfont.svg") format("svg");
+url("../../lib/font/zuehlke/zuehlke-webfont.woff2") format("woff2"),
+url("../../lib/font/zuehlke/zuehlke-webfont.woff") format("woff"),
+url("../../lib/font/zuehlke/zuehlke-webfont.ttf") format("truetype"),
+url("../../lib/font/zuehlke/zuehlke-webfont.svg") format("svg");
 }
 
 $zuehlkeOrange: #ff820a;
 $zuehlkeOrangeDark: #e47000;
+$blue: #5AB7DB;
+$green: #58C765;
+$orange: #FA9B1E;
+$red: #DE3E41;
 $mainFont: 'Open Sans', sans-serif;
 $mainFontSize: 36px;
 $mainColor: #444444;
@@ -45,7 +49,6 @@ img {
 }
 
 .reveal {
-
   .slides > section {
     padding: 0;
   }
@@ -146,7 +149,7 @@ img {
       font-size: 2.1em;
       position: relative;
       padding: 20px;
-      background: rgba(255,255,255,.8);
+      background: rgba(255, 255, 255, .8);
       margin-top: 4em;
       border-radius: 5px;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
@@ -186,6 +189,56 @@ img {
     padding: 0 4px;
     font-size: 90%;
     font-family: monospace;
+  }
+
+  .badge-container {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .badge {
+        position: relative;
+        padding: 7px;
+        color: white;
+        border-radius: 5px;
+        font-size: 1rem;
+        opacity: .8;
+
+        &:not(:first-child) {
+          margin-top: 5px;
+      }
+
+      &.es6 {
+        background-color: $orange;
+        &::before {
+          content: 'ES6';
+        }
+      }
+
+      &.es5 {
+        background-color: $blue;
+        &::before {
+          content: 'ES5';
+        }
+      }
+
+      &.do {
+        background-color: $green;
+        &::before {
+          content: 'Do';
+        }
+      }
+
+      &.dont {
+        background-color: $red;
+        &::before {
+          content: "Don't";
+        }
+      }
+    }
   }
 }
 
