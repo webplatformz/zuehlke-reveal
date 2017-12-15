@@ -29,7 +29,7 @@
         </section>
         <section>
             <section>
-                <h2>Array Creation</h2>
+                <h2>[ Array ] Creation</h2>
                 <pre>
                 <code class="hljs javascript" data-trim contenteditable data-noescape>
                     const empty = [];
@@ -43,16 +43,55 @@
                 </pre>
             </section>
             <section>
-                <h2>Arrays are Objects</h2>
+                <h2>[ Arrays ] are Objects</h2>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                         typeof [] // "object"
                     </code>
                 </pre>
-                <p>Remember, there is no type <span class="code">Array</span></p>
+                <div class="tip fragment">Remember, there is no type Array</div>
             </section>
             <section>
+                <h2>[ Arrays ] are Objects</h2>
+                <p>An Array is basically a map with index-to-value pairs. This means there is no such thing as <span class="code">out of bounds</span></p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const array = ['hello', 'array'];
 
+                    const arrayish = {
+                        0: 'hello',
+                        1: 'array'
+                    };
+
+                    array[4] = 'I am not out of bounds!';
+
+                    console.log(arrayish[0]); // hello
+                    console.log(array[0]);    // hello
+                    console.log(array[4]);    // I am not out of bounds!
+                    console.log(array[5]);    // undefined
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>[ Arrays ] are Objects</h2>
+                <p>TODO turn the slide before into 2 slides. Include the fact that gaps are filled up when setting a value at an index</p>
+            </section>
+            <section>
+                <h2>[ Array ] Operations</h2>
+                <p></p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const array = ['hello', 'array'];
+
+                        const arrayish = {
+                            0: 'hello',
+                            1: 'array'
+                        };
+
+                        console.log(array[0]); // hello
+                        console.log(arrayish[0]); // hello
+                    </code>
+                </pre>
             </section>
         </section>
     </div>
