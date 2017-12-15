@@ -41,7 +41,7 @@
                 </ul>
             </section>
             <section>
-                <h2>Types II</h2>
+                <h2>Types</h2>
                 <ul>
                     <li>Everything else is considered an <span class="code">object</span></li>
                 </ul>
@@ -53,18 +53,180 @@
                 <h2>Flow Control</h2>
                 <h3>If / Else</h3>
                 <pre>
-                    <code class="hljs" data-trim contenteditable data-noescape>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
                         if (condition) {
-                           doAwesomeStuff();
+                            doAwesomeStuff();
                         } else if (otherCondition) {
-                           doMoreAwesomeStuff();
+                            doMoreAwesomeStuff();
                         } else {
-                           doNothing();
+                            doNothing();
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Flow Control</h2>
+                <h3>For</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        for (let i = 0; i < 10; i++) {
+                            console.log(i);
+                        }
+
+                        //TODO move to Object chapter
+                        for (let variable in obj) {
+                            console.log(variable);
+                        }
+
+                        for (let variable of iterable) {
+                            console.log(variable);
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Flow Control</h2>
+                <h3>While / Do ... While</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        while (condition) {
+                            doAwesomeStuff();
+                        }
+
+                        do {
+                            doAwesomeStuff();
+                        } while(condition);
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Flow Control</h2>
+                <h3>Switch</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        switch(expr) {
+                            case 1:
+                                handleCase1();
+                                break;
+                            default:
+                                handleDefaultCase();
                         }
                     </code>
                 </pre>
             </section>
         </section>
+        <section>
+            <!-- Operators & Coercion -->
+            <section>
+                <h2>Operators &amp; Coercion</h2>
+                <h3>Definition of &laquo;Coercion&raquo;</h3>
+                <p>In computer science, type conversion, typecasting, and coercion are different ways of, implicitly or
+                    explicitly, changing an entity of one data type into another.</p>
+            </section>
+            <section>
+                <h2>Operators &amp; Coercion</h2>
+                <h3>What does this mean in practice?</h3>
+                <p>If the operands of an operator are of different types, one of them will be converted.</p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        0 == true; // false because true is converted to 1
+                        1 == "1"; // true because 1 is converted to "1"
+                        let x = 0 + ""; // x will be a string "0"
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Operators &amp; Coercion</h2>
+                <h3>Loose vs. Strict Equals</h3>
+                <ul>
+                    <li>Loose equals <span class="code">==</span> uses coercion</li>
+                    <li>Strict equals <span class="code">===</span> doesn't change the types</li>
+                </ul>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        1 == "1"; // true
+                        1 === "1"; // false
+                    </code>
+                </pre>
+                <div class="fragment tip">In your daily life, use strict equals only!</div>
+            </section>
+            <section>
+                <h2>Operators &amp; Coercion</h2>
+                <h3>Logical Operators</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        true && 42; // Returns second expression --> 42
+                        42 || false; // Returns first expression --> 42
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <!-- Truthy & Falsy -->
+            <section>
+                <h2>Truthy &amp; Falsy</h2>
+                <ul>
+                    <li>Due to coercion everything can be converted to a <span class="warn">boolean</span></li>
+                    <li>Therefore every value is either <span class="warn">truthy</span> or <span
+                            class="warn">falsy</span></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Truthy &amp; Falsy</h2>
+                <h3>The six falsy cases</h3>
+                <ul>
+                    <li><span class="code">false</span></li>
+                    <li><span class="code">0</span> (zero)</li>
+                    <li><span class="code">''</span> or <span class="code">""</span> (empty string)</li>
+                    <li><span class="code">null</span></li>
+                    <li><span class="code">undefined</span></li>
+                    <li><span class="code">NaN</span> (Not a Number, e.g. the result of 1/0)</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Truthy &amp; Falsy</h2>
+                <p>Everything else is <span class="warn">truthy</span>!</p>
+                <p>Makes it easy to check whether a variable is present:</p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        let x = 'Hello World';
+                        if (x) { // Truthy
+                            doSomething();
+                        }
+
+                        let y = 0;
+                        if (y) { // Falsy
+                            doSomething();
+                        }
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <!-- Syntax -->
+            <section>
+                <h2>Syntax</h2>
+            </section>
+        </section>
+        <section>
+            <!-- Variable declaration -->
+            <section>
+                <h2>Variable declaration</h2>
+            </section>
+        </section>
+        <section>
+            <!-- Strict Mode -->
+            <section>
+                <h2>Strict Mode</h2>
+            </section>
+        </section>
+        <section>
+            <!-- Equality -->
+            <section>
+                <h2>Equality</h2>
+            </section>
+        </section>
+
 
         <section>
             <h2>Examples</h2>
@@ -75,7 +237,7 @@
                 <span class="badge dont"></span>
             </div>
             <pre>
-                <code class="hljs" data-trim contenteditable data-noescape>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
                     let fancy = "fancy code!";
 				</code>
             </pre>
@@ -100,13 +262,13 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            { src: '../plugin/markdown/marked.js' },
-            { src: '../plugin/markdown/markdown.js' },
-            { src: '../plugin/notes/notes.js', async: true },
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             }
         ]
     });
