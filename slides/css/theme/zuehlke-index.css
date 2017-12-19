@@ -1,0 +1,58 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600);
+@font-face {
+  font-family: "Zuehlke";
+  src: url("../../lib/font/zuehlke/zuehlke-webfont.eot?") format("eot"), url("../../lib/font/zuehlke/zuehlke-webfont.woff2") format("woff2"), url("../../lib/font/zuehlke/zuehlke-webfont.woff") format("woff"), url("../../lib/font/zuehlke/zuehlke-webfont.ttf") format("truetype"), url("../../lib/font/zuehlke/zuehlke-webfont.svg") format("svg"); }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Open Sans', 'sans-serif';
+  display: flex;
+  background-image: url("../../img/bg.png");
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0 15px;
+  flex-direction: column; }
+  body h1 {
+    font-size: 50px;
+    background-color: rgba(200, 200, 200, 0.97);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 0 15px; }
+  body h1, body h2, body h3 {
+    font-family: 'Zuehlke', 'sans-serif';
+    color: #ff820a; }
+  body .container {
+    display: flex;
+    min-width: 100%;
+    justify-content: center;
+    flex-wrap: wrap; }
+    body .container section {
+      flex-basis: calc(25% - 2 * 15px);
+      min-width: 200px;
+      background: rgba(200, 200, 200, 0.97);
+      margin: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
+      body .container section:hover {
+        transform: scale(1.1);
+        box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.4); }
+      body .container section a {
+        display: block;
+        overflow: auto;
+        text-decoration: none;
+        color: inherit; }
+        body .container section a:visited {
+          text-decoration: none;
+          color: inherit; }
+      body .container section h2 {
+        margin: 0 0 10px; }
+      body .container section ul {
+        padding-left: 20px;
+        margin: 0; }
