@@ -35,7 +35,8 @@ body {
     background-color: $tileBackground;
     padding: $mainMargin;
     border-radius: 10px;
-    margin: 0 0 $mainMargin;
+    margin: 2*$mainMargin $mainMargin $mainMargin;
+    text-align: center;
   }
 
   h1, h2, h3 {
@@ -56,6 +57,7 @@ body {
       margin: $mainMargin;
       padding: 10px;
       border-radius: 10px;
+      flex-grow: 1;
 
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
