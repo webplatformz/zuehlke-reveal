@@ -19,6 +19,7 @@
 
 $zuehlkeOrange: #ff820a;
 $zuehlkeOrangeDark: #e47000;
+$logoSize: 10vw;
 $blue: #5AB7DB;
 $green: #58C765;
 $orange: #FA9B1E;
@@ -80,13 +81,29 @@ img {
     }
   }
 
-  &.img-slide {
+  .img-slide {
     h2 {
       display: inline-block;
       margin-top: 5em;
       margin-left: -4em;
       background: rgba(255, 255, 255, 0.5);
       padding: 0.5em;
+    }
+  }
+
+  .slide-background {
+    &.stack, &.deck-slide {
+      &::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: $logoSize;
+        width: $logoSize;
+        height: $logoSize;
+        background: url('../../img/zuehlke_logo.jpg');
+        background-size: contain;
+      }
     }
   }
 

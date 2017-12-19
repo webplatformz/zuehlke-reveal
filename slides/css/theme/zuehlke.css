@@ -36,12 +36,23 @@ img {
     text-indent: 0.1em;
     line-height: 1.3em; }
 
-.reveal.img-slide h2 {
+.reveal .img-slide h2 {
   display: inline-block;
   margin-top: 5em;
   margin-left: -4em;
   background: rgba(255, 255, 255, 0.5);
   padding: 0.5em; }
+
+.reveal .slide-background.stack::after, .reveal .slide-background.deck-slide::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10vw;
+  width: 10vw;
+  height: 10vw;
+  background: url("../../img/zuehlke_logo.jpg");
+  background-size: contain; }
 
 .reveal .slides section {
   padding: 0; }
