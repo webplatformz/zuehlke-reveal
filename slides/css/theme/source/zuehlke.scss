@@ -217,6 +217,28 @@ img {
         }
       }
 
+      .comparison {
+        display: flex;
+
+        > div:first-child, > div:last-child {
+          width: 50%;
+          height: 300px;
+          background-color: rgba(192,192,192, 0.3);
+          margin: 4px;
+          padding: 15px;
+          font-size: 1.5rem;
+        }
+
+        > div:first-child {
+          text-align: left;
+        }
+
+        > div:last-child {
+          text-align: right;
+        }
+
+      }
+
       .badge-container {
         display: flex;
         align-items: flex-end;

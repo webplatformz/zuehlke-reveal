@@ -122,6 +122,19 @@ img {
       min-width: 50px;
       min-height: 50px;
       margin-right: 20px; }
+  .reveal .slides section .comparison {
+    display: flex; }
+    .reveal .slides section .comparison > div:first-child, .reveal .slides section .comparison > div:last-child {
+      width: 50%;
+      height: 300px;
+      background-color: rgba(192, 192, 192, 0.3);
+      margin: 4px;
+      padding: 15px;
+      font-size: 1.5rem; }
+    .reveal .slides section .comparison > div:first-child {
+      text-align: left; }
+    .reveal .slides section .comparison > div:last-child {
+      text-align: right; }
   .reveal .slides section .badge-container {
     display: flex;
     align-items: flex-end;

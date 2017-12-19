@@ -91,20 +91,111 @@
             </section>
             <section>
                 <h2>[ Array ] Operations</h2>
+                <h3>Adding a value</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const a = [1, 2];
+                    a.push(3);
+
+                    console.log(a); // [1, 2, 3]
+                    </code>
+                </pre>
+                <div class="tip fragment">push mutates the array</div>
+            </section>
+            <section>
+                <h2>[ Array ] Operations</h2>
                 <h3>Concatenation</h3>
-                <p><span class="code">concat</span> returns a new array, the original one isn't changed.</p>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                     const a = [1, 2];
                     const b = [3, 4];
                     const both = a.concat(b);
+                    </code>
+                </pre>
+                <div class="tip fragment">concat doesn't mutate the array but returns a new one</div>
+            </section>
+            <section>
+                <h2>[ Array ] Operations</h2>
+                <h3>Splice</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const a = [1, 2, 3, 4];
 
-                    // concat can also be called on the
-                    // array literal directly
-                    const arr = ['a', 'b'].concat(['c']);
+                    const spliced = a.splice(2, 2);
+
+                    console.log(a); // [1, 2]
+                    console.log(spliced); // [3, 4]
+                    </code>
+                </pre>
+                <div class="tip fragment">splice mutates the array and returns the spliced elements</div>
+            </section>
+            <section>
+                <h2>[ Array ] Operations</h2>
+                <h3>Slice</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const a = [1, 2, 3, 4];
+
+                    const sliced = a.slice(2, 3);
+
+                    console.log(a); // [1, 2, 3, 4]
+                    console.log(sliced); // [3]
+                    </code>
+                </pre>
+                <div class="tip fragment">slice does not mutate the array but returns a new one</div>
+            </section>
+            <section>
+                <h2>[ Array ] Operations</h2>
+                <h3>Slice vs. Splice</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Slice</h4>
+                        <ul>
+                            <li>arguments: <span class="code">fromIndex, toIndex</span></li>
+                            <li>Returns new Array</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Splice</h4>
+                        <ul>
+                            <li>arguments: <span class="code">fromIndex, numberOfItems</span></li>
+                            <li>Mutates the Array</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>[ Array ] Operations</h2>
+                <h3>Finding a value</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const a = [1, 2, 3, 4];
+
+                    a.indexOf(2); // 1
+                    a.indexOf(10); // -1
                     </code>
                 </pre>
             </section>
+            <section>
+                <h2>[ Array ] Operations</h2>
+                <h3>Iterating</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const arr = [1, 2, 3, 4];
+
+                    for (let i = 0; i < arr.length; i++) {
+                        console.log(arr[i]);
+                    }
+                    </code>
+                </pre>
+                <div class="tip fragment">There are better ways to iterate over arrays, which will be covered later</div>
+            </section>
+            <section>
+                <h2>Try it yourself!</h2>
+                <p data-height="412" data-theme-id="dark" data-slug-hash="NXNxJp" data-default-tab="js,result" data-user="enpayne" data-embed-version="2" data-pen-title="Arrays" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/enpayne/pen/NXNxJp/">Arrays</a> by Nick Payne (<a href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+            </section>
+
         </section>
     </div>
 </div>
