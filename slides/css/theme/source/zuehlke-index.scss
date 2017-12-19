@@ -10,7 +10,8 @@
 }
 
 $zuehlkeOrange: #ff820a;
-$tileBackground: rgba(200, 200, 200, 0.97);
+$tileBackgroundEven: #575D62;
+$tileBackgroundOdd: #4B5054;
 $mainMargin: 15px;
 $logoSize: 10vw;
 $minLogoSize: 100px;
@@ -48,7 +49,7 @@ body {
 
   h1 {
     font-size: 50px;
-    background-color: $tileBackground;
+    background-color: $tileBackgroundEven;
     padding: $mainMargin;
     border-radius: 10px;
     margin: 2 * $mainMargin $mainMargin $mainMargin;
@@ -69,11 +70,19 @@ body {
     section {
       flex-basis: calc(25% - 2 * #{$mainMargin});
       min-width: 200px;
-      background: $tileBackground;
+      color: white;
       margin: $mainMargin;
       padding: 10px;
       border-radius: 10px;
       flex-grow: 1;
+
+      &:nth-child(even) {
+        background: $tileBackgroundEven;
+      }
+
+      &:nth-child(odd) {
+        background: $tileBackgroundOdd;
+      }
 
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 

@@ -32,7 +32,7 @@ body {
     background-size: contain; }
   body h1 {
     font-size: 50px;
-    background-color: rgba(200, 200, 200, 0.97);
+    background-color: #575D62;
     padding: 15px;
     border-radius: 10px;
     margin: 30px 15px 15px;
@@ -48,12 +48,16 @@ body {
     body .container section {
       flex-basis: calc(25% - 2 * 15px);
       min-width: 200px;
-      background: rgba(200, 200, 200, 0.97);
+      color: white;
       margin: 15px;
       padding: 10px;
       border-radius: 10px;
       flex-grow: 1;
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
+      body .container section:nth-child(even) {
+        background: #575D62; }
+      body .container section:nth-child(odd) {
+        background: #4B5054; }
       body .container section:hover {
         transform: scale(1.1);
         box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.4); }
