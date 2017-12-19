@@ -16,8 +16,20 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
-  padding: 0 15px;
+  padding: 115px 15px 0;
   flex-direction: column; }
+  body::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 10vw;
+    width: 10vw;
+    height: 10vw;
+    min-width: 100px;
+    min-height: 100px;
+    background: url("../../img/zuehlke_logo.jpg");
+    background-size: contain; }
   body h1 {
     font-size: 50px;
     background-color: rgba(200, 200, 200, 0.97);
