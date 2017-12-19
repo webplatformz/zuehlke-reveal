@@ -25,7 +25,7 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>04 Arrays</h1>
+            <h1>JavaScript Fundamentals<br>04 Arrays</h1>
         </section>
         <section>
             <section>
@@ -41,6 +41,10 @@
                     const mixed = [1, 'one', 2, 'three'];
                 </code>
                 </pre>
+            </section>
+            <section>
+                <h2>Accessing Values</h2>
+                <p>TODO accessing by index, destructuring</p>
             </section>
             <section>
                 <h2>[ Arrays ] are Objects</h2>
@@ -74,22 +78,30 @@
             </section>
             <section>
                 <h2>[ Arrays ] are Objects</h2>
-                <p>TODO turn the slide before into 2 slides. Include the fact that gaps are filled up when setting a value at an index</p>
+                <p>When setting a value at an index that would leave gaps, those gaps are "filled".</p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const array = [1, 2];
+                    array[3] = 4;
+
+                    console.log(array); // [1, 2, undefined, 4]
+                    </code>
+                </pre>
+
             </section>
             <section>
                 <h2>[ Array ] Operations</h2>
-                <p></p>
+                <h3>Concatenation</h3>
+                <p><span class="code">concat</span> returns a new array, the original one isn't changed.</p>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
-                        const array = ['hello', 'array'];
+                    const a = [1, 2];
+                    const b = [3, 4];
+                    const both = a.concat(b);
 
-                        const arrayish = {
-                            0: 'hello',
-                            1: 'array'
-                        };
-
-                        console.log(array[0]); // hello
-                        console.log(arrayish[0]); // hello
+                    // concat can also be called on the
+                    // array literal directly
+                    const arr = ['a', 'b'].concat(['c']);
                     </code>
                 </pre>
             </section>
