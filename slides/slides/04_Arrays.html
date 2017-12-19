@@ -44,8 +44,29 @@
             </section>
             <section>
                 <h2>Accessing Values</h2>
-                <p>TODO accessing by index, destructuring</p>
+                <p>By index</p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const array = [1, 2, 3, 4, 5];
+                        const one = array[0];
+                    </code>
+                </pre>
             </section>
+            <section>
+                <h2>Accessing Values</h2>
+                <p>Destructuring</p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const array = [1, 2, 3, 4, 5];
+                        const [one, two, three] = array;
+
+                        console.log(one); // 1
+                        console.log(two); // 2
+                        console.log(three); // 3
+                    </code>
+                </pre>
+            </section>
+
             <section>
                 <h2>[ Arrays ] are Objects</h2>
                 <pre>
@@ -109,7 +130,7 @@
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                     const a = [1, 2];
                     const b = [3, 4];
-                    const both = a.concat(b);
+                    const both = a.concat(b); // [1, 2, 3, 4]
                     </code>
                 </pre>
                 <div class="tip fragment">concat doesn't mutate the array but returns a new one</div>
@@ -125,6 +146,9 @@
 
                     console.log(a); // [1, 2]
                     console.log(spliced); // [3, 4]
+
+                    spliced.splice(1, 0, 5, 5, 5);
+                    console.log(spliced); // [3, 5, 5, 5, 4]
                     </code>
                 </pre>
                 <div class="tip fragment">splice mutates the array and returns the spliced elements</div>
@@ -158,8 +182,9 @@
                     <div>
                         <h4>Splice</h4>
                         <ul>
-                            <li>arguments: <span class="code">fromIndex, numberOfItems</span></li>
+                            <li>arguments: <span class="code">fromIndex, deleteCount, itemsToInsert</span></li>
                             <li>Mutates the Array</li>
+                            <li>Returns the deleted items as array</li>
                         </ul>
                     </div>
                 </div>
@@ -178,7 +203,11 @@
             </section>
             <section>
                 <h2>[ Array ] Operations</h2>
-                <h3>Iterating</h3>
+                <h3>TODO other operations -> mdn link</h3>
+            </section>
+            <section>
+                <h2>Iterating over an [ Array ]</h2>
+                <h3>Classical for-loop</h3>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                     const arr = [1, 2, 3, 4];
@@ -188,7 +217,23 @@
                     }
                     </code>
                 </pre>
-                <div class="tip fragment">There are better ways to iterate over arrays, which will be covered later</div>
+            </section>
+            <section>
+                <h2>Iterating over an [ Array ]</h2>
+                <h3>for-of loop</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const arr = [1, 2, 3];
+
+                        for (let value of arr) {
+                            console.log(value);
+                        }
+
+                        // 1
+                        // 2
+                        // 3
+                    </code>
+                </pre>
             </section>
             <section>
                 <h2>Try it yourself!</h2>
