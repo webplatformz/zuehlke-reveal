@@ -51,15 +51,19 @@
             <!-- Variable declaration -->
             <section>
                 <h2>Variable declaration</h2>
+                <div class="badge-container">
+                    <span class="badge es6"></span>
+                </div>
                 <ul>
-                    <li>There are two different types of variables <span class="code">var</span>, <span class="code">let</span></li>
+                    <li>There are two different types of variables <span class="code">var</span>, <span
+                            class="code">let</span></li>
                     <li>And a constant type <span class="code">const</span></li>
                 </ul>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                         var x = 42;
-                        let y = 42;
-                        const z = 42;
+                        let y = 42; // ES6
+                        const z = 42; // ES6
                     </code>
                 </pre>
             </section>
@@ -83,16 +87,25 @@
                 <h2>Syntax</h2>
                 <h3>Semicolons</h3>
                 <ul>
-                    <li>Semicolons are inserted automatically by the interpreter (Known as ASI - Automatic Semicolon Insertion)</li>
+                    <li>Semicolons are inserted automatically by the interpreter (Known as ASI - Automatic Semicolon
+                        Insertion)
+                    </li>
                     <li>However, you should set them yourself to avoid wrong behaviour</li>
                 </ul>
             </section>
             <section>
                 <h2>Syntax</h2>
                 <h3>Case sensitivity</h3>
-                <ul>
-                    <li>Variable names are case sensitive</li>
-                </ul>
+                <p>Variable names are case sensitive</p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        let aB = 'test';
+
+                        console.log(ab);
+
+                        <span class="fragment">// Uncaught ReferenceError: ab is not defined</span>
+                    </code>
+                </pre>
             </section>
         </section>
         <section>
@@ -119,15 +132,6 @@
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                         for (let i = 0; i < 10; i++) {
                             console.log(i);
-                        }
-
-                        //TODO move to Object chapter
-                        for (let variable in obj) {
-                            console.log(variable);
-                        }
-
-                        for (let variable of iterable) {
-                            console.log(variable);
                         }
                     </code>
                 </pre>
@@ -170,12 +174,14 @@
                 <h3>Definition of &laquo;Coercion&raquo;</h3>
                 <p>In computer science, type conversion, typecasting, and coercion are different ways of, implicitly or
                     explicitly, changing an entity of one data type into another.</p>
+                <p>Coercion /kəʊˈəːʃ(ə)n/ &rightarrow; der Zwang, die Nötigung</p>
             </section>
             <section>
                 <h2>Operators &amp; Coercion</h2>
                 <h3>What does this mean in practice?</h3>
                 <p>If the operands of an operator are of different types, one of them will be converted. The
-                    <a href="http://delapouite.com/ramblings/javascript-coercion-rules.html" target="_blank">coercion rules</a> are quite extensive.</p>
+                    <a href="http://delapouite.com/ramblings/javascript-coercion-rules.html" target="_blank">coercion
+                        rules</a> are quite extensive.</p>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                         0 == true; // false because true is converted to 1
@@ -261,42 +267,187 @@
                     </code>
                 </pre>
             </section>
+            <section>
+                <h2>Truthy &amp; Falsy</h2>
+                <p>Try it yourself!</p>
+                <p data-height="330" data-editable="true" data-theme-id="0" data-slug-hash="dJMGjL"
+                   data-default-tab="js,result"
+                   data-user="enpayne" data-embed-version="2" data-pen-title="Truthy & Falsy" class="codepen">See the
+                    Pen <a href="https://codepen.io/enpayne/pen/dJMGjL/">Truthy & Falsy</a> by Nicolas Oeschger (<a
+                            href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.
+                </p>
+                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+            </section>
         </section>
         <section>
             <!-- Strict Mode -->
             <section>
                 <h2>Strict Mode</h2>
+                <div class="badge-container">
+                    <span class="badge es5"></span>
+                </div>
+                <ul>
+                    <li>Opts in a restricted variant of JavaScript</li>
+                    <li>Not a subset but <span class="warn">different</span> semantics</li>
+                    <li>Strict mode and non-strict mode code can coexist</li>
+                    <li>Not supported by all browsers</li>
+                </ul>
             </section>
-        </section>
-        <section>
-            <!-- Equality -->
             <section>
-                <h2>Equality</h2>
+                <h2>Strict Mode</h2>
+                <div class="badge-container">
+                    <span class="badge es5"></span>
+                </div>
+                <ol>
+                    <li>Eliminates some JavaScript silent errors<br>&rightarrow; Throw errors</li>
+                    <li>Fixes mistakes that make it difficult for JavaScript engines to perform optimizations<br>&rightarrow;
+                        Runs faster
+                    </li>
+                    <li>Prohibits some syntax likely to be defined in future versions of ECMAScript</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Strict Mode</h2>
+                <h3>How to invoke it?</h3>
+                <p>For scripts:</p>
+                <div class="badge-container">
+                    <span class="badge es5"></span>
+                </div>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        // Whole-script strict mode syntax
+                        'use strict';
+                        var v = "Hi! I'm a strict mode script!";
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Strict Mode</h2>
+                <h3>How to invoke it?</h3>
+                <p>For functions:</p>
+                <div class="badge-container">
+                    <span class="badge es5"></span>
+                </div>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function strict() {
+                            'use strict';
+                            return "Hi!  I'm a strict mode function!";
+                        }
+
+                        function notStrict() {
+                            return "I'm not strict.";
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Strict Mode</h2>
+                <h3>Further information</h3>
+                <div class="badge-container">
+                    <span class="badge es5"></span>
+                </div>
+                <p>If you want to learn more about what <span class="code">strict mode</span> is doing exactly, we
+                    recommend reading
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode"
+                       target="_blank">this</a> article.</p>
             </section>
         </section>
-
-
         <section>
-            <h2>Examples</h2>
-            <div class="badge-container">
-                <span class="badge es6"></span>
-                <span class="badge es5"></span>
-                <span class="badge do"></span>
-                <span class="badge dont"></span>
-            </div>
-            <pre>
-                <code class="hljs javascript" data-trim contenteditable data-noescape>
-                    let fancy = "fancy code!";
-				</code>
-            </pre>
+            <!-- Strings -->
+            <section>
+                <h2>Strings</h2>
+                <h3>Definition</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        let aString = "I'm a string";
+                        let anotherString '"Me" too!';
+                    </code>
+                </pre>
+                <p><span class="code">""</span> and <span class="code">''</span> are equivalent. It only depends which
+                    is more convenient regarding the content of the string.<br>E.g. <span class="code">"Don't"</span>
+                    vs. <span class="code">'Don\'t'</span></p>
+            </section>
+            <section>
+                <h2>Strings</h2>
+                <h3>Concatenation</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        let a = "I'm a";
+                        let b 'string!';
+                        let c = a + ' ' + c;
+                        <span class="fragment">// I'm a string!</span>
+
+                        <span class="fragment">let d = a.concat(' ', b);</span>
+                        <span class="fragment">// I'm a string!</span>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Strings</h2>
+                <h3>Template Literals</h3>
+                <div class="badge-container">
+                    <span class="badge es6"></span>
+                </div>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        let x = 'String';
+                        let aString = `I'm a "${x}" too!`;
+
+                        <span class="fragment">// I'm a "String" too!</span>
+                    </code>
+                </pre>
+                <p>You can use single and double quotes as well as variables without concatenation using ES6 <span
+                        class="warn">template literals</span> with back ticks (<span class="code">``</span>).</p>
+            </section>
+            <section>
+                <h2>Strings</h2>
+                <h3>Template Literals II</h3>
+                <div class="badge-container">
+                    <span class="badge es6"></span>
+                </div>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        let aString = `It's even possible
+                        to add line breaks!`;
+
+                        <span class="fragment">// It's even possible<br>// to add line breaks!</span>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Strings</h2>
+                <h3>Template Literals III</h3>
+                <div class="badge-container">
+                    <span class="badge es6"></span>
+                </div>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        let x;
+                        `The value is: ${x ? x : 'not defined'}!`;
+                        <span class="fragment">// The value is: not defined!</span>
+
+                        x = 'test';
+                        `The value is: ${x ? x : 'not defined'}`;
+                        <span class="fragment">// The value is: test!</span>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Strings</h2>
+                <h3>Useful Functions</h3>
+                <ul>
+                    <li><span class="code">substring()</span></li>
+                    <li><span class="code">toLowerCase()</span> & <span class="code">toUpperCase()</span></li>
+                    <li><span class="code">startsWith()</span> & <span class="code">endsWith()</span></li>
+                    <li>etc.</li>
+                </ul>
+                <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                          target="_blank">here</a> for a complete list.</p>
+            </section>
         </section>
-        <section>
-            <h2>CodePen Example</h2>
-            <p data-height="290" data-theme-id="0" data-slug-hash="ppJYjg" data-default-tab="js,result"
-               data-user="enpayne" data-embed-version="2" data-pen-title="Js-Demo" class="codepen">See the Pen <a
-                    href="https://codepen.io/enpayne/pen/ppJYjg/">Js-Demo</a> by Nick Payne (<a
-                    href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+        <section class="deck-slide">
+            <h1>Zeit für Fragen...</h1>
         </section>
     </div>
 </div>
