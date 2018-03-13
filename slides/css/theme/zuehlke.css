@@ -43,7 +43,7 @@ img {
   background: rgba(255, 255, 255, 0.5);
   padding: 0.5em; }
 
-.reveal .slide-background.stack::after, .reveal .slide-background.deck-slide::after {
+.reveal .slide-background::after {
   content: ' ';
   display: block;
   position: absolute;
@@ -107,10 +107,16 @@ img {
   .reveal .slides section .code {
     background: rgba(236, 239, 241, 0.56);
     border-radius: 2px;
-    color: #00796B !important;
+    color: #00796B;
     padding: 0 4px;
     font-size: 90%;
     font-family: monospace; }
+    .reveal .slides section .code.nobg {
+      color: inherit;
+      background: inherit;
+      padding: 0;
+      margin: 0 10px;
+      border-radius: 0; }
   .reveal .slides section .tip {
     position: absolute;
     top: 50%;

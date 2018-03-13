@@ -28,9 +28,8 @@
             <h1>JavaScript Fundamentals<br>04 Arrays</h1>
         </section>
         <section>
-            <section>
-                <h2>[ Array ] Creation</h2>
-                <pre>
+            <h2>[ Array ] Creation</h2>
+            <pre>
                 <code class="hljs javascript" data-trim contenteditable data-noescape>
                     const empty = [];
 
@@ -41,7 +40,8 @@
                     const mixed = [1, 'one', 2, 'three'];
                 </code>
                 </pre>
-            </section>
+        </section>
+        <section>
             <section>
                 <h2>Accessing Values</h2>
                 <p>By index</p>
@@ -66,7 +66,8 @@
                     </code>
                 </pre>
             </section>
-
+        </section>
+        <section>
             <section>
                 <h2>[ Arrays ] are Objects</h2>
                 <pre>
@@ -74,11 +75,12 @@
                         typeof [] // "object"
                     </code>
                 </pre>
-                <div class="tip fragment">Remember, there is no type Array</div>
+                <div class="tip fragment">Remember, there is no type Array.</div>
             </section>
             <section>
                 <h2>[ Arrays ] are Objects</h2>
-                <p>An Array is basically a map with index-to-value pairs. This means there is no such thing as <span class="code">out of bounds</span></p>
+                <p>An Array is basically a map with index-to-value pairs. This means there is no such thing as <span
+                        class="code">out of bounds</span></p>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                     const array = ['hello', 'array'];
@@ -110,6 +112,8 @@
                 </pre>
 
             </section>
+        </section>
+        <section>
             <section>
                 <h2>[ Array ] Operations</h2>
                 <h3>Adding a value</h3>
@@ -121,7 +125,20 @@
                     console.log(a); // [1, 2, 3]
                     </code>
                 </pre>
-                <div class="tip fragment">push mutates the array</div>
+                <div class="tip fragment"><span class="code nobg">push()</span> mutates the array!</div>
+            </section>
+            <section>
+                <h2>[ Array ] Operations</h2>
+                <h3>Removing last value</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const a = [1, 2, 3];
+
+                    console.log(a.pop()); // 3
+                    console.log(a); // [1, 2]
+                    </code>
+                </pre>
+                <div class="tip fragment"><span class="code nobg">pop()</span> mutates the array!</div>
             </section>
             <section>
                 <h2>[ Array ] Operations</h2>
@@ -133,7 +150,7 @@
                     const both = a.concat(b); // [1, 2, 3, 4]
                     </code>
                 </pre>
-                <div class="tip fragment">concat doesn't mutate the array but returns a new one</div>
+                <div class="tip fragment"><span class="code nobg">concat()</span> doesn't mutate the array but returns a new one</div>
             </section>
             <section>
                 <h2>[ Array ] Operations</h2>
@@ -151,7 +168,7 @@
                     console.log(spliced); // [3, 5, 5, 5, 4]
                     </code>
                 </pre>
-                <div class="tip fragment">splice mutates the array and returns the spliced elements</div>
+                <div class="tip fragment"><span class="code nobg">splice()</span> mutates the array and returns the spliced elements</div>
             </section>
             <section>
                 <h2>[ Array ] Operations</h2>
@@ -166,7 +183,7 @@
                     console.log(sliced); // [3]
                     </code>
                 </pre>
-                <div class="tip fragment">slice does not mutate the array but returns a new one</div>
+                <div class="tip fragment"><span class="code nobg">slice()</span> does not mutate the array but returns a new one</div>
             </section>
             <section>
                 <h2>[ Array ] Operations</h2>
@@ -203,8 +220,13 @@
             </section>
             <section>
                 <h2>[ Array ] Operations</h2>
-                <h3>TODO other operations -> mdn link</h3>
+                <h3>And many more...</h3>
+                <p>The array interface in JS is very mighty. See <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">here</a>
+                    for a complete list of all possible functions.</p>
             </section>
+        </section>
+        <section>
             <section>
                 <h2>Iterating over an [ Array ]</h2>
                 <h3>Classical for-loop</h3>
@@ -235,12 +257,34 @@
                     </code>
                 </pre>
             </section>
+            <!-- TODO: Move to functional slides!
             <section>
-                <h2>Try it yourself!</h2>
-                <p data-height="412" data-theme-id="dark" data-slug-hash="NXNxJp" data-default-tab="js,result" data-user="enpayne" data-embed-version="2" data-pen-title="Arrays" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/enpayne/pen/NXNxJp/">Arrays</a> by Nick Payne (<a href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-            </section>
+                <h2>Iterating over an [ Array ]</h2>
+                <h3>foreach()</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const arr = [a, b, c];
 
+                        arr.foreach((value, index, completeArray) => {
+                            console.log(value, index, completeArray)
+                        });
+
+                        // a 0 [a, b, c]
+                        // b 1 [a, b, c]
+                        // c 2 [a, b, c]
+                    </code>
+                </pre>
+                <div class="tip fragment">You don't need to specify all variables!</div>
+            </section>
+            -->
+        </section>
+        <section>
+            <h2>Try it yourself!</h2>
+            <p data-height="412" data-theme-id="dark" data-slug-hash="NXNxJp" data-default-tab="js,result"
+               data-user="enpayne" data-embed-version="2" data-pen-title="Arrays" data-editable="true" class="codepen">
+                See the Pen <a href="https://codepen.io/enpayne/pen/NXNxJp/">Arrays</a> by Nick Payne (<a
+                    href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
         </section>
     </div>
 </div>
@@ -254,13 +298,13 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            { src: '../plugin/markdown/marked.js' },
-            { src: '../plugin/markdown/markdown.js' },
-            { src: '../plugin/notes/notes.js', async: true },
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             }
         ]
     });

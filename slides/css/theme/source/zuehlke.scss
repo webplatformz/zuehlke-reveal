@@ -92,18 +92,16 @@ img {
   }
 
   .slide-background {
-    &.stack, &.deck-slide {
-      &::after {
-        content: ' ';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: $logoSize;
-        width: $logoSize;
-        height: $logoSize;
-        background: url('../../img/zuehlke_logo.jpg');
-        background-size: contain;
-      }
+    &::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: $logoSize;
+      width: $logoSize;
+      height: $logoSize;
+      background: url('../../img/zuehlke_logo.jpg');
+      background-size: contain;
     }
   }
 
@@ -200,10 +198,18 @@ img {
       .code {
         background: rgba(236, 239, 241, 0.56);
         border-radius: 2px;
-        color: #00796B !important;
+        color: #00796B;
         padding: 0 4px;
         font-size: 90%;
         font-family: monospace;
+
+        &.nobg {
+          color: inherit;
+          background: inherit;
+          padding: 0;
+          margin: 0 10px;
+          border-radius: 0;
+        }
       }
 
       .tip {
