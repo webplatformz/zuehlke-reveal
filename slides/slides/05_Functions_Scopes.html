@@ -59,6 +59,37 @@
                 </pre>
                 <div class="tip fragment">don't worry, we will cover the difference in more detail later</div>
             </section>
+            <section>
+                <h2>Functions ( ) { }</h2>
+                <p>(fat) arrow functions</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const fatArrow = () => console.log('arrow function');
+                    // is the same as
+                    const fatArrow = function() {
+                        console.log('arrow function')
+                    }
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Functions ( ) { } </h2>
+                <p>Functions are first-class objects</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function doThis(fn) {
+                        fn();
+                    }
+
+                    function giveMeAFunction() {
+                        return () => console.log('i'm a function');
+                    }
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Try it yourself!</h2>
+            </section>
         </section>
         <section>
             <section>
