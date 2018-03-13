@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Angular Workshop | 04 Arrays</title>
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>JavaScript Fundamentals<br>05 Functions and Scopes</h1>
+        </section>
+        <section>
+            <section>
+                <h2>Functions( ) { }</h2>
+                <p>Function Declaration</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    sum(4, 9); // 12
+
+                    function sum(a, b) {
+                        return a + b;
+                    }
+
+                    sum(4, 9); // 12
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Functions ( ) { } </h2>
+                <p>Function Expression</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    sum(1, 3); // TypeError: undefined is not a function
+
+                    const sum = function(a, b) {
+                        return a + b;
+                    }
+
+                    sum(1, 3); // 4
+                </code>
+                </pre>
+                <div class="tip fragment">don't worry, we will cover the difference in more detail later</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Scope</h2>
+                <p>JavaScript has a <span class="warn">Global Scope</span> and <span class="warn">Function/Local Scope</span></p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    let globalVariable = 'I am global!';
+
+                    function createScope() {
+                        let localVariable = 'I am function-scoped!';
+                    }
+
+                    console.log(globalVariable); // I am global
+                    console.log(localVariable);  // ReferenceError
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Scope</h2>
+                <p>There is no block scope...</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    if (isOver18) {
+                        var canHaveDrinks = true;
+                    }
+
+                    console.log(canHaveDrinks); // true
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Scope</h2>
+                <p>... unless you use <span class="code">let</span>!</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    if (isOver18) {
+                        let canHaveDrinks = true;
+                    }
+
+                    console.log(canHaveDrinks); // ReferenceError
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Scope</h2>
+                <p>This makes <span class="code">for-loops</span> a little less annoying.</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    for (var i = 0; i < arr.length; i++) {
+                        // i is visible in the whole function scope :(
+                    }
+
+                    for (let k = 0; k < arr.length; k++) {
+                        // k is only visible here :)
+                    }
+                </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Hoisting</h2>
+                <p>This term is used to describe the way JavaScript compiles and runs code. Simply put, <span class="warn">declarations</span>
+                are put into memory before any code is executed.</p>
+            </section>
+        </section>
+    </div>
+</div>
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
