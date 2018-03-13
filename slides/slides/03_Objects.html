@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Angular Workshop | 03 Objects</title>
+    <title>03 Objects | JavaScript Fundamentals</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/zuehlke.css">
@@ -28,11 +28,11 @@
             <h1>JavaScript Fundamentals<br>03 Objects</h1>
         </section>
         <section>
-            <section>
-                <h2>{ Objects }</h2>
-                <p>Remember, except for the 6 primitive types, <span class="warn">everything</span> in JavaScript is an
-                    <span class="code">Object</span>.</p>
-            </section>
+            <h2>{ Objects }</h2>
+            <p>Remember, except for the 6 primitive types, <span class="warn">everything</span> in JavaScript is an
+                <span class="code">Object</span>.</p>
+        </section>
+        <section>
             <section>
                 <h2>Creating an { Object }</h2>
                 <h3>Object Literal</h3>
@@ -56,6 +56,8 @@
 
                 <p>An object is basically a <span class="code">Map</span></p>
             </section>
+        </section>
+        <section>
             <section>
                 <h2>Accessing Properties</h2>
                 <h3>Dot notation</h3>
@@ -95,18 +97,77 @@
             <section>
                 <h2>Accessing Properties</h2>
                 <h3>Destructuring</h3>
-                <p>todo</p>
-            </section>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const john = {
+                            name: 'John',
+                            age: 24
+                        };
 
+                        const {name, age} = john;
+
+                        console.log(name); // John
+                        console.log(age); // 24
+
+                        const {name: foo, age: bar} = john;
+
+                        console.log(foo); // John
+                        console.log(bar); // 24
+                    </code>
+                </pre>
+            </section>
             <section>
-                <h2>Try it yourself</h2>
-                <h3>Make the tests green</h3>
-                <p data-height="459" data-theme-id="dark" data-slug-hash="XVmWLq" data-default-tab="js,result" data-user="enpayne" data-embed-version="2" data-pen-title="Objects-Exercise" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/enpayne/pen/XVmWLq/">Objects-Exercise</a> by Nick Payne (<a href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                <h2>Accessing Properties</h2>
+                <h3>Destructuring - Default Values</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const john = {
+                            name: 'John',
+                            age: 24
+                        };
+
+                        const {name, lastName = 'Hero'} = john;
+
+                        console.log(name); // John
+                        console.log(lastName); // Hero
+
+                        const {name: foo, lastName: bar = 'Hero'} = john;
+
+                        console.log(foo); // John
+                        console.log(bar); // Hero
+                    </code>
+                </pre>
             </section>
+            <section>
+                <h2>Accessing Properties</h2>
+                <h3>Destructuring - Computed Keys</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const john = {
+                            name: 'John',
+                            age: 24
+                        };
 
+                        const key = 'name';
+
+                        const {[key]: foo} = john;
+
+                        console.log(foo); // John
+                    </code>
+                </pre>
+            </section>
         </section>
-
+        <section>
+            <h2>Try it yourself</h2>
+            <h3>Make the tests green</h3>
+            <p data-height="459" data-theme-id="dark" data-slug-hash="XVmWLq" data-default-tab="js,result"
+               data-user="enpayne" data-embed-version="2" data-pen-title="Objects-Exercise" data-editable="true"
+               class="codepen">See the Pen <a href="https://codepen.io/enpayne/pen/XVmWLq/">Objects-Exercise</a> by
+                Nick Payne (<a href="https://codepen.io/enpayne">@enpayne</a>) on <a
+                        href="https://codepen.io">CodePen</a>.
+            </p>
+            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+        </section>
     </div>
 </div>
 <script src="../lib/js/head.min.js"></script>
@@ -119,13 +180,13 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            { src: '../plugin/markdown/marked.js' },
-            { src: '../plugin/markdown/markdown.js' },
-            { src: '../plugin/notes/notes.js', async: true },
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             }
         ]
     });

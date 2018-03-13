@@ -56,6 +56,10 @@ body {
     color: $zuehlkeOrange;
   }
 
+  .nowrap {
+    white-space: nowrap;
+  }
+
   header {
     flex-basis: 100%;
     margin: $mainMargin;

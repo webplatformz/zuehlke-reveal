@@ -35,6 +35,8 @@ body {
   body h1, body h2, body h3 {
     font-family: 'Zuehlke', 'sans-serif';
     color: #ff820a; }
+  body .nowrap {
+    white-space: nowrap; }
   body header {
     flex-basis: 100%;
     margin: 15px;
