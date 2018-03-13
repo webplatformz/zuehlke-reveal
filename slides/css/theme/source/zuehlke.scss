@@ -92,18 +92,16 @@ img {
   }
 
   .slide-background {
-    &.stack, &.deck-slide {
-      &::after {
-        content: ' ';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: $logoSize;
-        width: $logoSize;
-        height: $logoSize;
-        background: url('../../img/zuehlke_logo.jpg');
-        background-size: contain;
-      }
+    &::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: $logoSize;
+      width: $logoSize;
+      height: $logoSize;
+      background: url('../../img/zuehlke_logo.jpg');
+      background-size: contain;
     }
   }
 

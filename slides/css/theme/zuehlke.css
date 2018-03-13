@@ -43,7 +43,7 @@ img {
   background: rgba(255, 255, 255, 0.5);
   padding: 0.5em; }
 
-.reveal .slide-background.stack::after, .reveal .slide-background.deck-slide::after {
+.reveal .slide-background::after {
   content: ' ';
   display: block;
   position: absolute;
