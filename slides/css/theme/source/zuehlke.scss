@@ -195,6 +195,10 @@ img {
         color: $zuehlkeOrange;
       }
 
+      .strikethrough {
+        text-decoration: line-through;
+      }
+
       .code {
         background: rgba(236, 239, 241, 0.56);
         border-radius: 2px;
@@ -245,11 +249,19 @@ img {
 
         > div:first-child, > div:last-child {
           width: 50%;
-          height: 300px;
-          background-color: rgba(192,192,192, 0.3);
-          margin: 4px;
-          padding: 15px;
-          font-size: 1.5rem;
+
+          &.code {
+            font-size: 1.8rem;
+            padding: 0;
+          }
+
+          &:not(.code) {
+            height: 300px;
+            background-color: rgba(192,192,192, 0.3);
+            margin: 4px;
+            padding: 15px;
+            font-size: 1.5rem;
+          }
         }
 
         > div:first-child {

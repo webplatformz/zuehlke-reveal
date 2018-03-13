@@ -104,6 +104,8 @@ img {
     height: 0.25em; }
   .reveal .slides section .warn {
     color: #ff820a; }
+  .reveal .slides section .strikethrough {
+    text-decoration: line-through; }
   .reveal .slides section .code {
     background: rgba(236, 239, 241, 0.56);
     border-radius: 2px;
@@ -142,12 +144,15 @@ img {
   .reveal .slides section .comparison {
     display: flex; }
     .reveal .slides section .comparison > div:first-child, .reveal .slides section .comparison > div:last-child {
-      width: 50%;
-      height: 300px;
-      background-color: rgba(192, 192, 192, 0.3);
-      margin: 4px;
-      padding: 15px;
-      font-size: 1.5rem; }
+      width: 50%; }
+      .reveal .slides section .comparison > div:first-child.code, .reveal .slides section .comparison > div:last-child.code {
+        font-size: 1.8rem; }
+      .reveal .slides section .comparison > div:first-child:not(.code), .reveal .slides section .comparison > div:last-child:not(.code) {
+        height: 300px;
+        background-color: rgba(192, 192, 192, 0.3);
+        margin: 4px;
+        padding: 15px;
+        font-size: 1.5rem; }
     .reveal .slides section .comparison > div:first-child {
       text-align: left; }
     .reveal .slides section .comparison > div:last-child {
