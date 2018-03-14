@@ -28,18 +28,138 @@
             <h1>JavaScript Fundamentals<br>06 Prototypes</h1>
         </section>
         <section>
-            <h2>[ Array ] Creation</h2>
-            <pre>
+            <section>
+                <h2>Prototypes</h2>
+                <p>JavaScript is a prototype-based language, which means that each object has a prototype object.</p>
+                <p class="fragment"><span class="warn">...what?</span></p>
+            </section>
+            <section>
+                <h2>Prototypes</h2>
+                <p>Think of Java, where every <span class="code">class</span> inherits from <span class="code">Object</span>.</p>
+                <p class="fragment">In JavaScript, every <span class="code">{ object }</span> has a <span class="warn">link</span> to <span class="code">Object.prototype</span></p>
+                <p class="fragment"><span class="warn">...what?</span></p>
+            </section>
+            <section>
+                <h2>Try it out!</h2>
+                <p>in the developer console. Have a close look at the output</p>
+                <pre>
                 <code class="hljs javascript" data-trim contenteditable data-noescape>
-                    const empty = [];
+                    {};
+                    const obj1 = {};
+                    const obj2 = {};
 
-                    const numbers = [1, 2, 3, 4];
+                    Object.getPrototypeOf(obj1)
+                        === Object.getPrototypeOf(obj2);
 
-                    const strings = ['hello', 'array'];
-
-                    const mixed = [1, 'one', 2, 'three'];
+                    Object.prototype;
                 </code>
                 </pre>
+            </section>
+            <section>
+                <h2>Prototypes</h2>
+                <p>What have we learnt?</p>
+                <ul>
+                    <li>Every object has <span class="warn">the same</span> prototype object!</li>
+                    <li><span class="code">Object.prototype</span> is the prototype assigned to all objects</li>
+                    <li><span class="code">Object.prototype</span> contains many useful methods, which we can call on all objects (eg
+                    <span class="code">toString()</span>)</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>The <span class="code">new</span> keyword</h2>
+                <p>You can put <span class="code">new</span> in front of every method call, turning it into a <span class="code">constructor call</span>.</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const result = uselessFunction(); // returns undefined
+                    const withNew = new uselessFunction(); // returns {} !
+
+                    function uselessFunction() { }
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>The <span class="code">new</span> keyword</h2>
+                <p>What happens behind the scenes when we call a function with <span class="code">new</span></p>
+                <ol>
+                    <li>A new empty object <span class="code">{ }</span> is created</li>
+                    <li class="fragment">The function is called with <span class="code">this</span> bound to the new object</li>
+                    <li class="fragment">The new object is returned</li>
+                </ol>
+            </section>
+            <section>
+                <h2>The <span class="code">new</span> keyword</h2>
+                <p>What happens behind the scenes when we call a function with <span class="code">new</span></p>
+
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const myObj = new SomeFunction();
+                    // does roughly this:
+                    const obj = {};
+                    SomeFunction.call(obj);
+                    myObj = obj;
+
+                    function SomeFunction() {
+                        this.hello = 'World';
+                    }
+                </code>
+                </pre>
+                <div class="tip fragment">It is convention to capitalize functions which are intended as constructors.</div>
+            </section>
+            <section>
+                <h2>The <span class="code">new</span> keyword</h2>
+                <p>Now have a look at your newly created object's prototype!</p>
+
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const person1 = new Person(), person2 = new Person();
+
+                    Object.getPrototypeOf(person1)
+                        === Object.getPrototypeOf(person2);
+
+                    Object.getPrototypeOf(Person.prototype)
+                        === Object.prototype
+
+                    function Person() {
+                        this.name = 'Freddy';
+                    }
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Prototypes</h2>
+                <p>What have we learnt?</p>
+                <ul>
+                    <li>Every person has <span class="warn">the same</span> prototype object</li>
+                    <li><span class="code">Person.prototype</span> is the prototype assigned to all person objects</li>
+                    <li>There is a chain of prototypes up to <span class="code">Object.prototype</span>!</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Prototypes</h2>
+                <p>Conclusion (draft):</p>
+                <ul>
+                    <li class="fragment">every function has a prototype, which is an object, which has its own prototype, which is an object, which is the prototype of Object</li>
+                    <li class="fragment">prototypes are singletons</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Inheritance</h2>
+                <p>What does inheritance actually mean?</p>
+            </section>
+            <section>
+                <h2>Inheritance</h2>
+                <p>usually implies a <span class="warn">copy</span> action</p>
+                <img src="../img/inheritance.png" />
+            </section>
+        </section>
+        <section>
+            <h2>Prototypes</h2>
+            <p></p>
+            <p class="fragment"><span class="warn">...what?</span></p>
         </section>
     </div>
 </div>
@@ -53,9 +173,9 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            {src: '../plugin/markdown/marked.js'},
-            {src: '../plugin/markdown/markdown.js'},
-            {src: '../plugin/notes/notes.js', async: true},
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
                     hljs.initHighlightingOnLoad();
