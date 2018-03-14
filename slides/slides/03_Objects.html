@@ -59,16 +59,83 @@
         </section>
         <section>
             <section>
+                <h2>Adding properties</h2>
+                <h3>Dot notation</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const person = {
+                            name: 'John',
+                            age: 24
+                        };
+
+                        person.lastName = 'Hero';
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Adding properties</h2>
+                <h3>Bracket notation</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const person = {
+                            name: 'John',
+                            age: 24
+                        };
+
+                        person['lastName'] = 'Hero';
+
+                        // Useful when you have the key in variable
+                        const key = 'sex';
+                        person[key] = 'male';
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Deleting properties</h2>
+                <h3>Dot notation</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const person = {
+                            name: 'John',
+                            age: 24
+                        };
+
+                        delete person.name;
+
+                        console.log(person); // {age: 24}
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Deleting properties</h2>
+                <h3>Bracket notation</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const person = {
+                            name: 'John',
+                            age: 24
+                        };
+
+                        delete person['age'];
+
+                        console.log(person); // {name: 'John'}
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
                 <h2>Accessing Properties</h2>
                 <h3>Dot notation</h3>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                         const john = {
                             name: 'John',
+                            lastName: 'Hero',
                             age: 24
                         };
-
-                        john.lastName = 'Hero';
 
                         console.log(john.age); // 24
                         console.log(john.lastName); // Hero
@@ -78,15 +145,14 @@
             </section>
             <section>
                 <h2>Accessing Properties</h2>
-                <h3>Bracket Notation</h3>
+                <h3>Bracket notation</h3>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                         const john = {
                             name: 'John',
+                            lastName: 'Hero',
                             age: 24
                         };
-
-                        john['lastName'] = 'Hero';
 
                         console.log(john['age']); // 24
                         console.log(john['lastName']); // Hero
