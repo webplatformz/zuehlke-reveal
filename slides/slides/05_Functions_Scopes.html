@@ -71,6 +71,7 @@
                     }
                 </code>
                 </pre>
+                <div class="tip fragment">Actually, it is not 100% the same, but we will cover that later.</div>
             </section>
             <section>
                 <h2>Functions ( ) { } </h2>
@@ -82,8 +83,39 @@
                     }
 
                     function giveMeAFunction() {
-                        return () => console.log('i'm a function');
+                        return () => console.log('I am a function');
                     }
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Functions ( ) { } </h2>
+                <p>IIFE: Immediately Invoked Function Expression</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    (() => {
+                        const name = 'I am not on the global scope';
+                    })()
+                    console.log(name); // ReferenceError
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Functions ( ) { } </h2>
+                <p>IIFEs are commonly used to prevent polluting the global scope and creating a "public API"</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    ((global) => {
+                        function render() { ... }
+                        function helperMethod() { ... }
+
+                        global.MyLibrary = {
+                            render: render
+                        }
+                    })(window)
+
+                    window.MyLibrary.render();
+                    window.MyLibrary.helperMethod(); // ReferenceError
                 </code>
                 </pre>
             </section>
@@ -382,10 +414,8 @@
                 <p>What do you think happens here?</p>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
-                        for (var i=1; i<=5; i++) {
-                            setTimeout( function timer(){
-                                console.log( i );
-                            }, i*1000 );
+                        for (var i = 1; i <= 5; i++) {
+                            setTimeout(() => console.log(i), i * 1000);
                         }
                     </code>
                 </pre>
@@ -395,10 +425,10 @@
                 <p>A slightly tweaked version</p>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
-                        for (var i=1; i<=5; i++) {
+                        for (var i = 1; i <= 5; i++) {
                             function wait(k) {
-                                setTimeout( function timer(){
-                                    console.log( k );
+                                setTimeout(function timer() {
+                                    console.log(k);
                                 }, i*1000 );
                             }
 
