@@ -56,7 +56,7 @@ body {
     body section:nth-child(odd) {
       background: rgba(50, 50, 50, 0.8); }
     body section:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.4); }
     body section a {
       display: block;
