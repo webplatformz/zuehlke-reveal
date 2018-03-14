@@ -1,0 +1,342 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>06 Prototypes | JavaScript Fundamentals</title>
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>JavaScript Fundamentals<br>06 This</h1>
+        </section>
+        <section>
+            <h2><span class="code nobg">this</span> or that?</h2>
+            <p>The <span class="code">this</span> keyword is one of the most misunderstood concepts in JavaScript.</p>
+            <p>The reason why most developers are confused with it, is probably that <span class="code">this</span> in
+                JavaScript works differently than in other languages.</p>
+            <p>Why is that? Let's dig a bit deeper...</p>
+        </section>
+        <section>
+            <section>
+                <h2>Intention of <span class="code nobg">this</span></h2>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function hello() {
+                            return `Hello ${this.name}!`;
+                        }
+
+                        const me = {name: "Nici"};
+
+                        const you = {name: "Student"};
+
+                        console.log(hello.call(me)); // Hello Nici!
+                        console.log(hello.call(you)); // Hello Student!
+                    </code>
+                </pre>
+                <p class="fragment">The <span class="code">call()</span> method calls a function with a given <span
+                        class="code">this</span> value and arguments provided individually.</p>
+            </section>
+            <section>
+                <h2>Intention of <span class="code nobg">this</span></h2>
+                <ul>
+                    <li>The idea of <span class="code">this</span> is to provide context</li>
+                    <li>Makes functions reusable against different contexts</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Intention of <span class="code nobg">this</span></h2>
+                <p>The previous example is equivalent to this:</p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function hello(context) {
+                            return `Hello ${context.name}!`;
+                        }
+
+                        const me = {name: "Nici"};
+
+                        const you = {name: "Student"};
+
+                        console.log(hello(me)); // Hello Nici!
+                        console.log(hello(you)); // Hello Student!
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Confusions</h2>
+                <h3>Itself</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function countMe(number) {
+                            console.log('Number:', number);
+                            this.count++;
+                        }
+
+                        countMe.count = 0;
+
+                        for (let i = 0; i < 3; i++) countMe(i);
+
+                        // Number: 0
+                        // Number: 1
+                        // Number: 2
+
+                        console.log(countMe.count) <span class="fragment">// 0 - WTF?!</span>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Confusions</h2>
+                <h3>Itself</h3>
+                <ul>
+                    <li><span class="code">this</span> in <span class="code">countMe()</span> is automatically set to
+                        the <span
+                                class="warn">call-site</span> &rightarrow; Here the <span class="code">window</span>
+                        object
+                    </li>
+                    <li>We set a global variable by accident</li>
+                    <li>By invoking <span class="code">countMe()</span> we're producing a <span class="code">NaN</span>
+                        exception
+                    </li>
+                    <li><span class="code">console.log(window.count);</span> &rightarrow; <span class="warn">NaN</span>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Confusions</h2>
+                <h3>Its scope</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function foo() {
+                            let a = 'Hello';
+                            this.bar();
+                        }
+
+                        function bar() {
+                            console.log(this.a);
+                        }
+
+                        foo(); <span class="fragment">// undefined</span>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Confusions</h2>
+                <h3>Its scope</h3>
+                There are several issues with this snippet:
+                <ul>
+                    <li>Using <span class="code">this.bar()</span> works only by coincidence</li>
+                    <li>Intention: Creating a <i>bridge</i> between <span class="code">foo()</span> and <span
+                            class="code">bar()</span> &rightarrow; There is no such <i>bridge</i>!
+                    </li>
+                    <li>The <span class="warn">lexical scope</span> of <span class="code">foo()</span> is not propagated
+                        to <span class="code">bar()</span></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>So what is <span class="code nobg">this</span>?</h2>
+            <ul>
+                <li>Not an author-time but a runtime binding</li>
+                <li>Has nothing to do with where the function is declared...</li>
+                <li>...but everything with where and how it is invoked</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Bindings</h2>
+                <h3>Default - The catch all rule</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function bindingTest() {
+                            console.log(this.value);
+                        }
+
+                        var value = 'global';
+
+                        bindingTest(); global
+                    </code>
+                </pre>
+                <p>&rightarrow; In <span class="warn">strict mode</span> the global object isn't eligible to be used as
+                    <span class="code">this</span>! It's <span class="code">undefined</span> instead.</p>
+            </section>
+            <section>
+                <h2>Bindings</h2>
+                <h3>Implicit</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function bindingTest() {
+                            console.log(this.value);
+                        }
+
+                        const implicitContext = {
+                            value: 'implicit',
+                            bindingTest: bindingTest
+                        }
+
+                        implicitContext.bindingTest(); // implicit
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Bindings</h2>
+                <h3>Implicitly lost</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function bindingTest() {
+                            console.log(this.value);
+                        }
+
+                        function invoke(fn) {
+                            fn(); // The call-site is here!
+                        }
+
+                        const implicitContext = {
+                            value: 'implicit',
+                            bindingTest: bindingTest
+                        }
+
+                        invoke(implicitContext.bindingTest); // undefined
+                    </code>
+                </pre>
+                <div class="tip fragment">Think of how <span class="code nobg">setTimeout()</span> works... ;)</div>
+            </section>
+            <section>
+                <h2>Bindings</h2>
+                <h3>Explicit</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function bindingTest() {
+                            console.log(this.value);
+                        }
+
+                        const explicitCtx = {
+                            value: 'explicit',
+                        }
+
+                        bindingTest.call(explicitCtx); // explicit
+                        bindingTest.apply(explicitCtx); // explcit
+
+                        const explicitlyBound = bindingTest.bind(explicitCtx);
+                        explicitlyBound(); // explicit
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Bindings</h2>
+                <h3><span class="code nobg">new</span> – What it doesn't do</h3>
+                <ul>
+                    <li>Another big misconception</li>
+                    <li>Works differently than in traditional class-oriented languages (although it looks identically)
+                    </li>
+                    <li>There are no classes in JS (classes are just functions)</li>
+                    <li>There really is <span class="warn">no connection</span> to class-oriented functionality implied
+                        by <span class="code">new</span> usage in JS.
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Bindings</h2>
+                <h3><span class="code nobg">new</span> – What it really does</h3>
+                <ol>
+                    <li>Brand new object is created <span class="code">{}</span></li>
+                    <li>The new object is <span class="code">[[Prototype]]</span>-linked <i>(next chapter)</i></li>
+                    <li>The new object is explicitly bound as <span class="code">this</span> to the function call (<span class="code">fn.call(obj);</span>)</li>
+                    <li>Unless the function returns its own alternate object, the new-invoked function call will automatically return the newly constructed object</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Bindings</h2>
+                <h3><span class="code nobg">new</span></h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        function Person() {
+                            this.name = 'Nici';
+                        }
+
+                        const person = new Person(); // {name: 'Nici'}
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <h2>Special case: Arrow functions</h2>
+            <p>Arrow compared to normal functions have a <span class="warn">lexical</span> <span class="code">this</span>!</p>
+            <div class="comparison">
+                <div class="code">
+                    <div class="badge-container">
+                        <span class="badge es5"></span>
+                    </div>
+                    <pre>
+                        <code class="hljs javascript" data-trim contenteditable data-noescape>
+                            function Person() {
+                                this.age = 0;
+
+                                setInterval(function() {
+                                    this.age++;
+                                }.bind(this), 1000);
+                            }
+                        </code>
+                    </pre>
+                </div>
+                <div class="code">
+                    <div class="badge-container">
+                        <span class="badge es6"></span>
+                    </div>
+                    <pre>
+                        <code class="hljs javascript" data-trim contenteditable data-noescape>
+                           function Person() {
+                                this.age = 0;
+
+                                setInterval(() => {
+                                    this.age++;
+                                }, 1000);
+                            }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

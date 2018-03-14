@@ -146,7 +146,9 @@ img {
     .reveal .slides section .comparison > div:first-child, .reveal .slides section .comparison > div:last-child {
       width: 50%; }
       .reveal .slides section .comparison > div:first-child.code, .reveal .slides section .comparison > div:last-child.code {
-        font-size: 1.8rem; }
+        position: relative;
+        font-size: 1.8rem;
+        padding: 0; }
       .reveal .slides section .comparison > div:first-child:not(.code), .reveal .slides section .comparison > div:last-child:not(.code) {
         height: 300px;
         background-color: rgba(192, 192, 192, 0.3);
