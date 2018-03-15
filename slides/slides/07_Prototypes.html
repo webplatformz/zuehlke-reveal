@@ -68,7 +68,7 @@
         </section>
         <section>
             <section>
-                <h2>The <span class="code">new</span> keyword</h2>
+                <h2>The <span class="code">new</span> operator</h2>
                 <p>You can put <span class="code">new</span> in front of every method call, turning it into a <span class="code">constructor call</span>.</p>
                 <pre>
                 <code class="hljs javascript" data-trim contenteditable data-noescape>
@@ -80,7 +80,7 @@
                 </pre>
             </section>
             <section>
-                <h2>The <span class="code">new</span> keyword</h2>
+                <h2>The <span class="code">new</span> operator</h2>
                 <p>What happens behind the scenes when we call a function with <span class="code">new</span></p>
                 <ol>
                     <li>A new empty object <span class="code">{ }</span> is created</li>
@@ -89,7 +89,7 @@
                 </ol>
             </section>
             <section>
-                <h2>The <span class="code">new</span> keyword</h2>
+                <h2>The <span class="code">new</span> operator</h2>
                 <p>What happens behind the scenes when we call a function with <span class="code">new</span></p>
 
                 <pre>
@@ -108,7 +108,7 @@
                 <div class="tip fragment">It is convention to capitalize functions which are intended as constructors.</div>
             </section>
             <section>
-                <h2>The <span class="code">new</span> keyword</h2>
+                <h2>The <span class="code">new</span> operator</h2>
                 <p>Now have a look at your newly created object's prototype!</p>
 
                 <pre>
@@ -117,9 +117,10 @@
 
                     Object.getPrototypeOf(person1)
                         === Object.getPrototypeOf(person2);
-
                     Object.getPrototypeOf(Person.prototype)
-                        === Object.prototype
+                        === Object.prototype;
+
+                    Person.prototype;
 
                     function Person() {
                         this.name = 'Freddy';
@@ -138,11 +139,72 @@
             </section>
             <section>
                 <h2>Prototypes</h2>
-                <p>Conclusion (draft):</p>
+                <p>Conclusions:</p>
                 <ul>
-                    <li class="fragment">every function has a prototype, which is an object, which has its own prototype, which is an object, which is the prototype of Object</li>
-                    <li class="fragment">prototypes are singletons</li>
+                    <li class="fragment">Every function has its own prototype object</li>
+                    <li class="fragment">Prototypes are singletons</li>
+                    <li class="fragment">Every object created from this function has that function's prototype linked to it</li>
                 </ul>
+            </section>
+            <section>
+                <h2>Prototypes</h2>
+                <p>Conclusions:</p>
+                <ul>
+                    <li class="fragment">Any plain object <span class="code">{ }</span> is basically the result of calling <span class="code">new Object()</span>,
+                        which is why it is linked to <span class="code">Object.prototype</span></li>
+                    <li class="fragment">Since a function's prototype is an object, it has it's own prototype too, the <span class="code">Object.prototype</span></li>
+                </ul>
+            </section>
+            <section>
+                <h2>But what does this even mean?</h2>
+                <p>When trying to access a property on an object, the prototype chain is followed until that property is found.
+                    If it still isn't present on the topmost prototype (almost always <span class="code">Object.prototype</span>,
+                    a <span class="code">ReferenceError</span> is thrown.</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Creating "classes" with Prototypes</h2>
+                <p>Now you have understood how prototypes work, so we can try to create our own "classes" and instances, without using ES6 classes.</p>
+                <p>Remember, JavaScript <span class="warn">doesn't really know the concept of classes, only objects</span></p>
+            </section>
+            <section>
+                <h2>"Classes"</h2>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const freddy = new Person('Freddy', 35);
+                    const johnny = new Person('Johnny', 47);
+
+                    function Person(name, age) {
+                        this.name = name;
+                        this.age = age;
+                    }
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>"Classes"</h2>
+                <p>Adding behaviour</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function Person(name, age) {
+                        this.name = name;
+                        this.age = age;
+                    }
+
+                    Person.prototype.sayHello = function() {
+                        console.log(`Hi, I am ${this.name}
+                            and I am ${age} years old.`);
+                    }
+                </code>
+                </pre>
+                <div class="tip fragment">Prototypes are singletons! Behaviour or even properties added to them apply to all objects,
+                 even when added later!</div>
+            </section>
+            <section>
+                <h2>Try it yourself</h2>
+                <p data-height="459" data-theme-id="0" data-slug-hash="vRGVmM" data-default-tab="js,result" data-user="enpayne" data-embed-version="2" data-pen-title="Prototypes" class="codepen">See the Pen <a href="https://codepen.io/enpayne/pen/vRGVmM/">Prototypes</a> by Nick Payne (<a href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
             </section>
         </section>
         <section>
