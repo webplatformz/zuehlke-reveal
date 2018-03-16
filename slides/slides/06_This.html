@@ -258,8 +258,12 @@
                 <ol>
                     <li>Brand new object is created <span class="code">{}</span></li>
                     <li>The new object is <span class="code">[[Prototype]]</span>-linked <i>(next chapter)</i></li>
-                    <li>The new object is explicitly bound as <span class="code">this</span> to the function call (<span class="code">fn.call(obj);</span>)</li>
-                    <li>Unless the function returns its own alternate object, the new-invoked function call will automatically return the newly constructed object</li>
+                    <li>The new object is explicitly bound as <span class="code">this</span> to the function call (<span
+                            class="code">fn.call(obj);</span>)
+                    </li>
+                    <li>Unless the function returns its own alternate object, the new-invoked function call will
+                        automatically return the newly constructed object
+                    </li>
                 </ol>
             </section>
             <section>
@@ -278,7 +282,8 @@
         </section>
         <section>
             <h2>Special case: Arrow functions</h2>
-            <p>Arrow compared to normal functions have a <span class="warn">lexical</span> <span class="code">this</span>!</p>
+            <p>Arrow compared to normal functions have a <span class="warn">lexical</span> <span
+                    class="code">this</span>!</p>
             <div class="comparison">
                 <div class="code">
                     <div class="badge-container">
@@ -313,6 +318,14 @@
                     </pre>
                 </div>
             </div>
+        </section>
+        <section>
+            <h2>Try it yourself</h2>
+            <p data-height="460" data-theme-id="0" data-slug-hash="wmWQjq" data-default-tab="js,result"
+               data-user="enpayne" data-embed-version="2" data-pen-title="this" data-editable="true" class="codepen">See
+                the Pen <a href="https://codepen.io/enpayne/pen/wmWQjq/">this</a> by Nick Payne (<a
+                        href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
         </section>
     </div>
 </div>
