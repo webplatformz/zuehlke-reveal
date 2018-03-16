@@ -9,8 +9,8 @@
 body {
   font-family: 'Open Sans', 'sans-serif';
   display: flex;
-  background-image: url("../../img/bg.png");
   background-size: cover;
+  background: url("../../img/bg.jpg") center, center;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -23,11 +23,13 @@ body {
     display: block;
     position: absolute;
     top: 0;
-    left: 10vw;
-    width: 10vw;
-    height: 10vw;
+    left: 8vw;
+    width: 8vw;
+    height: 8vw;
     min-width: 100px;
     min-height: 100px;
+    max-width: 200px;
+    max-height: 200px;
     background: url("../../img/zuehlke_logo.jpg");
     background-size: contain; }
   body h1 {
@@ -54,7 +56,7 @@ body {
     body section:nth-child(even) {
       background: rgba(50, 50, 50, 0.8); }
     body section:nth-child(odd) {
-      background: rgba(50, 50, 50, 0.8); }
+      background: rgba(70, 70, 70, 0.8); }
     body section:hover {
       transform: scale(1.05);
       box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.4); }

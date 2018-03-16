@@ -19,7 +19,9 @@
 
 $zuehlkeOrange: #ff820a;
 $zuehlkeOrangeDark: #e47000;
-$logoSize: 10vw;
+$logoSize: 8vw;
+$minLogoSize: 100px;
+$maxLogoSize: 200px;
 $blue: #5AB7DB;
 $green: #58C765;
 $orange: #FA9B1E;
@@ -52,7 +54,7 @@ img {
 .reveal {
   .deck-slide {
     &.slide-background {
-      background: url("../../img/bg.png");
+      background: url("../../img/bg.jpg"), center, center;
       background-size: cover;
     }
 
@@ -100,6 +102,10 @@ img {
       left: $logoSize;
       width: $logoSize;
       height: $logoSize;
+      min-width: $minLogoSize;
+      min-height: $minLogoSize;
+      max-width: $maxLogoSize;
+      max-height: $maxLogoSize;
       background: url('../../img/zuehlke_logo.jpg');
       background-size: contain;
     }

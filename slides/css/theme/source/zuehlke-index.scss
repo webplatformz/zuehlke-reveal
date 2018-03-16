@@ -11,10 +11,11 @@
 
 $zuehlkeOrange: #ff820a;
 $tileBackgroundEven: rgba(50, 50, 50, .8);
-$tileBackgroundOdd: rgba(50, 50, 50, .8);
+$tileBackgroundOdd: rgba(70, 70, 70, .8);
 $mainMargin: 15px;
-$logoSize: 10vw;
+$logoSize: 8vw;
 $minLogoSize: 100px;
+$maxLogoSize: 200px;
 
 * {
   box-sizing: border-box;
@@ -23,8 +24,8 @@ $minLogoSize: 100px;
 body {
   font-family: 'Open Sans', 'sans-serif';
   display: flex;
-  background-image: url('../../img/bg.png');
   background-size: cover;
+  background: url('../../img/bg.jpg') center, center;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -43,6 +44,9 @@ body {
     height: $logoSize;
     min-width: $minLogoSize;
     min-height: $minLogoSize;
+    max-width: $maxLogoSize;
+    max-height: $maxLogoSize;
+
     background: url('../../img/zuehlke_logo.jpg');
     background-size: contain;
   }
