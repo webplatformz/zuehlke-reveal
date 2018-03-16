@@ -54,6 +54,7 @@
                         === Object.getPrototypeOf(obj2);
 
                     Object.prototype;
+                    Object.prototype.constructor;
                 </code>
                 </pre>
             </section>
@@ -61,12 +62,13 @@
                 <h2>Prototypes</h2>
                 <p>What have we learnt?</p>
                 <ul>
-                    <li>Every object has <span class="warn">the same</span> prototype object!</li>
+                    <li>Every plain object has <span class="warn">the same</span> prototype object!</li>
                     <li><span class="code">Object.prototype</span> is the prototype assigned to all objects</li>
                     <li><span class="code">Object.prototype</span> contains many useful methods, which we can call on
-                        all objects (eg
-                        <span class="code">toString()</span>)
+                        all objects (eg <span class="code">toString()</span>)
                     </li>
+                    <li><span class="code">Object.prototype</span> has a property <span class="code">constructor</span>
+                        which points back to <span class="code">Object</span></li>
                 </ul>
             </section>
         </section>
@@ -86,7 +88,7 @@
             </section>
             <section>
                 <h2>The <span class="code">new</span> operator</h2>
-                <p>What happens behind the scenes when we call a function with <span class="code">new</span></p>
+                <p>What (roughly) happens behind the scenes when we call a function with <span class="code">new</span></p>
                 <ol>
                     <li>A new empty object <span class="code">{ }</span> is created</li>
                     <li class="fragment">The function is called with <span class="code">this</span> bound to the new
@@ -129,6 +131,7 @@
                         === Object.prototype;
 
                     Person.prototype;
+                    Person.prototype.constructor;
 
                     function Person() {
                         this.name = 'Freddy';
@@ -214,30 +217,130 @@
                 </code>
                 </pre>
                 <div class="tip fragment">Prototypes are singletons! Behaviour or even properties added to them apply to
-                    all objects,
-                    even when added later!
+                    all objects, even when added later!
                 </div>
             </section>
             <section>
                 <h2>Try it yourself</h2>
                 <p data-height="459" data-theme-id="0" data-slug-hash="vRGVmM" data-default-tab="js,result"
                    data-user="enpayne" data-embed-version="2" data-pen-title="Prototypes" data-editable="true"
-                   class="codepen">See the Pen <a href="https://codepen.io/enpayne/pen/vRGVmM/">Prototypes</a> by Nick
-                    Payne (<a
-                            href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.
+                   class="codepen">See the Pen <a href="https://codepen.io/enpayne/pen/vRGVmM/">Prototypes</a> by Nick Payne (<a href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.
                 </p>
                 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
             </section>
         </section>
         <section>
             <section>
+                <h2>Object.create</h2>
+                <p>We have learnt that when creating an object with a constructor call, it is automatically assigned
+                 the constructor function's prototype.</p>
+                <p>There is a way to create an object with <span class="warn">no</span> or a <span class="warn">custom</span> prototype: <span class="code">Object.create</span></p>
+            </section>
+            <section>
+                <h2>Object.create</h2>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const objWithoutProto = Object.create(null);
+
+                    const myOwnProto = {
+                        sayHi: function() {
+                            console.log('hi');
+                        }
+                    }
+
+                    const person = Object.create(myOwnProto);
+                </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
                 <h2>Inheritance</h2>
-                <p>What does inheritance actually mean?</p>
+                <p>We have already seen how inheritance works in JavaScript.</p>
+                <p><span class="warn">By prototype chains.</span></p>
             </section>
             <section>
                 <h2>Inheritance</h2>
                 <p>usually implies a <span class="warn">copy</span> action</p>
                 <img src="../img/inheritance.png"/>
+            </section>
+            <section>
+                <h2>Inheritance</h2>
+                <p>... while in JavaScript, things aren't copied, but <span class="warn">linked</span>.</p>
+                <img src="../img/prototypes.png"/>
+            </section>
+            <section>
+                <h2>Inheritance</h2>
+                <p>Base "Class"</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function Person(name, age) {
+                        this.name = name;
+                        this.age = age;
+                    }
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Inheritance</h2>
+                <p>Child "Class"</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function Student(name, age, studentId) {
+                        Person.call(this, name, age);
+                        this.id = studentId;
+                    }
+
+                    Student.prototype = Object.create(Person.prototype);
+                    Student.prototype.constructor = Student;
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Inheritance</h2>
+                <p>Try it out yourself in the console!</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function Person(name, age) {
+                        this.name = name;
+                        this.age = age;
+                    }
+
+                    function Student(name, age, studentId) {
+                        Person.call(this, name, age);
+                        this.id = studentId;
+                    }
+
+                    Student.prototype = Object.create(Person.prototype);
+                    Student.prototype.constructor = Student;
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Inheritcance</h2>
+                <p>TODO draw a diagram of the inheritance we just did</p>
+            </section>
+            <section>
+                <h2>Inheritance</h2>
+                <p>Since ES6 classes, this behaviour is hidden</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    class Person {
+                        constructor(name, age) {
+                            this.name = name;
+                            this.age = age;
+                        }
+                    }
+
+                    class Student extends Person {
+                        constructor(name, age, studentId) {
+                            super(name, age);
+                            this.id = studentId;
+                        }
+                    }
+                </code>
+                </pre>
+                <div class="tip fragment">The language still doesn't know the concept of classes. This is just syntactical sugar to hide the pattern we looked at before.</div>
             </section>
         </section>
         <section>
