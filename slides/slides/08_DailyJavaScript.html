@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>07 Prototypes | JavaScript Fundamentals</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>JavaScript Fundamentals<br>08 Daily JavaScript</h1>
+        </section>
+        <section>
+            <section>
+                <h2>Streams</h2>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function totalAgeOfWomen(persons) {
+                        return persons
+                                .filter(p => p.gender === 'FEMALE')
+                                .map(female => female.age)
+                                .reduce((acc, cur) => acc + cur)
+                    }
+                </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Callbacks</h2>
+                <p>You can handle asynchronous calls with callback functions.</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    get('http://google.ch', function(response, error) {
+                        console.log(response);
+                    });
+
+                    function get(url, callback) {
+                        const data = http.get(url);
+                        callback(data);
+                    }
+                </code>
+                </pre>
+                <div class="tip fragment">This is possible because functions are first class objects.</div>
+            </section>
+            <section>
+                <h2>Callbacks</h2>
+                <p>This can quickly end up in <span class="warn">callback hell</span></p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    getSomeData(function(data1) {
+                        getMoreRelatedData(data, function(data2) {
+                            getEvenMoreData(moreData, function(data3) {
+                                console.log('got it!');
+                            }
+                        });
+                    });
+                </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Promises</h2>
+                <p>Promises make asynchronous calls more readable, especially when chained.</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    get(url)
+                        .then(d1 => getMoreData(d1))
+                        .then(d2 => getEvenMoreData(d2))
+                        .then(d3 => console.log(d3));
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Promises</h2>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function wait(millis) {
+                        return new Promise(resolve => {
+                            setTimeout(resolve, millis);
+                        });
+                    }
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Async / Await</h2>
+                <p>When "waiting" for promises to resolve, you can also use <span class="code">async</span> functions to make
+                    the code look even more synchronous!</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    async function getSomeData(url) {
+                        const response = await http.get(url);
+                        return response.data;
+                    }
+                </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>"Modules"</h2>
+                <p>If you want to split your project into different files, it is convention to use IIFEs to add your modules to the appropriate scope.</p>
+                <p>todo codepen example</p>
+            </section>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
