@@ -66,10 +66,10 @@
                 <p>This can quickly end up in <span class="warn">callback hell</span></p>
                 <pre>
                 <code class="hljs javascript" data-trim contenteditable data-noescape>
-                    getSomeData(function(data1) {
-                        getMoreRelatedData(data, function(data2) {
-                            getEvenMoreData(moreData, function(data3) {
-                                console.log('got it!');
+                    doThis(function(result) {
+                        thenDoThat(data, function(result2) {
+                            thenDoFinalThing(moreData, function(result3) {
+                                console.log('done!');
                             }
                         });
                     });
@@ -83,10 +83,10 @@
                 <p>Promises make asynchronous calls more readable, especially when chained.</p>
                 <pre>
                 <code class="hljs javascript" data-trim contenteditable data-noescape>
-                    get(url)
-                        .then(d1 => getMoreData(d1))
-                        .then(d2 => getEvenMoreData(d2))
-                        .then(d3 => console.log(d3));
+                    doThis(url)
+                        .then(result => doThat(result))
+                        .then(result2 => doFinalThing(result2))
+                        .then(result3 => console.log('done!'));
                 </code>
                 </pre>
             </section>
