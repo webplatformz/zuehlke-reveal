@@ -88,7 +88,7 @@
                     <li>Semicolons are inserted automatically by the interpreter (Known as ASI - Automatic Semicolon
                         Insertion)
                     </li>
-                    <li>However, you should set them yourself to avoid wrong behaviour</li>
+                    <li>However, you should set them yourself to avoid unexpected behaviour</li>
                 </ul>
             </section>
             <section>
@@ -209,13 +209,13 @@
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                         true && 42; // Returns second expression --> 42
-                        42 || false; // Returns first expression --> 42
+                        false || 42 || true; // Returns first "true" expression --> 42
                     </code>
                 </pre>
             </section>
             <section>
                 <h2>Try it yourself</h2>
-                <p>Open the console (F12 on windows, CMD + alt + J on Mac) and play around!</p>
+                <p>Open the console (F12 on windows, CMD + alt + I on Mac) and play around!</p>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                         1 == "1"

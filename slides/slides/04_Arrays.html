@@ -87,6 +87,7 @@
                     const array = ['hello', 'array'];
 
                     const arrayish = {
+                        length: 2,
                         0: 'hello',
                         1: 'array'
                     };
@@ -94,7 +95,6 @@
                     array[4] = 'I am not out of bounds!';
 
                     console.log(arrayish[0]); // hello
-                    console.log(array[0]);    // hello
                     console.log(array[4]);    // I am not out of bounds!
                     console.log(array[5]);    // undefined
                     </code>
