@@ -89,45 +89,12 @@
                 </code>
                 </pre>
             </section>
-            <section>
-                <h2>Functions ( ) { } </h2>
-                <p>IIFE: Immediately Invoked Function Expression</p>
-                <pre>
-                <code class="hljs javascript" data-trim contenteditable data-noescape>
-                    (() => {
-                        const name = 'I am not on the global scope';
-                    })()
-                    console.log(name); // ReferenceError
-                </code>
-                </pre>
-            </section>
-            <section>
-                <h2>Functions ( ) { } </h2>
-                <p>IIFEs are commonly used to prevent polluting the global scope and creating a "public API"</p>
-                <pre>
-                <code class="hljs javascript" data-trim contenteditable data-noescape>
-                    ((global) => {
-                        function render() { ... }
-                        function helperMethod() { ... }
-
-                        global.MyLibrary = {
-                            render: render
-                        }
-                    })(window)
-
-                    window.MyLibrary.render();
-                    window.MyLibrary.helperMethod(); // ReferenceError
-                </code>
-                </pre>
-            </section>
-            <section>
-                <h2>Try it yourself!</h2>
-            </section>
         </section>
         <section>
             <section>
                 <h2>Scope</h2>
-                <p>JavaScript has a <span class="warn">Global Scope</span> and <span class="warn">Function/Local Scope</span></p>
+                <p>JavaScript has a <span class="warn">Global Scope</span> and <span
+                        class="warn">Function/Local Scope</span></p>
                 <pre>
                 <code class="hljs javascript" data-trim contenteditable data-noescape>
                     let globalVariable = 'I am global!';
@@ -184,6 +151,38 @@
                 </pre>
                 <div class="tip fragment">In your daily life, always use const or let</div>
             </section>
+            <section>
+                <h2>Scope</h2>
+                <p>IIFE: Immediately Invoked Function Expression</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    (() => {
+                        const name = 'I am not on the global scope';
+                    })()
+
+                    console.log(name); // ReferenceError
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Scope</h2>
+                <p>IIFEs are commonly used to prevent polluting the global scope and creating a "public API"</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    ((global) => {
+                        function render() { ... }
+                        function helperMethod() { ... }
+
+                        global.MyLibrary = {
+                            render: render
+                        }
+                    })(window)
+
+                    window.MyLibrary.render();
+                    window.MyLibrary.helperMethod(); // ReferenceError
+                </code>
+                </pre>
+            </section>
         </section>
         <section>
             <section>
@@ -191,7 +190,7 @@
                 <p>This term is an attempt to make the way JavaScript compiles and runs code more understandable.</p>
 
                 <p>Simply put, <span class="warn">declarations</span>
-                are put into memory during the compile phase, before any code is executed.</p>
+                    are put into memory during the compile phase, before any code is executed.</p>
                 <p class="fragment"><span class="warn">....what?</span></p>
             </section>
             <section>
@@ -207,12 +206,15 @@
                 </code>
                 </pre>
                 <p class="fragment">Why does this work? The declared function
-                    <span class="code">printStuff</span> seems to be available "further up" than where it was authored.</p>
+                    <span class="code">printStuff</span> seems to be available "further up" than where it was authored.
+                </p>
             </section>
             <section>
                 <h2>Hoisting</h2>
-                <p>This is where the concept of <span class="warn">hoisting</span> comes in. We think of declarations being
-                    <span class="warn">moved to the top</span> of their function scope. It also applies to <span class="code">var</span> declarations.</p>
+                <p>This is where the concept of <span class="warn">hoisting</span> comes in. We think of declarations
+                    being
+                    <span class="warn">moved to the top</span> of their function scope. It also applies to <span
+                            class="code">var</span> declarations.</p>
                 <pre>
                 <code class="hljs javascript" data-trim contenteditable data-noescape>
                     x = 5;
@@ -242,7 +244,8 @@
             </section>
             <section>
                 <h2>Hoisting</h2>
-                <p><span class="code">let</span> and <span class="code">const</span> work in a slightly different way.</p>
+                <p><span class="code">let</span> and <span class="code">const</span> work in a slightly different way.
+                </p>
                 <pre>
                 <code class="hljs javascript" data-trim contenteditable data-noescape>
                     x = 5;
@@ -438,6 +441,21 @@
                     </code>
                 </pre>
             </section>
+            <section>
+                <h2>Closures</h2>
+                <p><span class="warn">Careful!</span></p>
+                <p>References in closures can lead to memory leaks, for example when registering events.</p>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        const aBigObject = {};
+
+                        button.onClick = function() {
+                            console.log(aBigObject.lotsOfData)
+                        }
+                    </code>
+                </pre>
+                <div class="tip fragment">Keep your events tidy !</div>
+            </section>
         </section>
         <section class="deck-slide">
             <h1>Questions?</h1>
@@ -459,8 +477,8 @@
             { src: '../plugin/notes/notes.js', async: true },
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             }
         ]
     });

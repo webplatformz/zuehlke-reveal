@@ -164,7 +164,7 @@
                 <h2>Prototypes</h2>
                 <p>Conclusions:</p>
                 <ul>
-                    <li class="fragment">Any plain object <span class="code">{ }</span> is basically the result of
+                    <li class="fragment">Any plain object <span class="code">{ }</span> is conceptually the result of
                         calling <span class="code">new Object()</span>,
                         which is why it is linked to <span class="code">Object.prototype</span></li>
                     <li class="fragment">Since a function's prototype is an object, it has it's own prototype too, the
@@ -177,6 +177,11 @@
                     found.
                     If it still isn't present on the topmost prototype (almost always <span class="code">Object.prototype</span>,
                     a <span class="code">ReferenceError</span> is thrown.</p>
+            </section>
+            <section>
+                <h2>Getters & Setters</h2>
+                <p>While accessing a property will follow the prototype chain until it is found...</p>
+                <p class="fragment"><span class="warn">setting</span> a property will set it directly on the object</p>
             </section>
         </section>
         <section>
@@ -267,7 +272,7 @@
             </section>
             <section>
                 <h2>Inheritance</h2>
-                <p>... while in JavaScript, things aren't copied, but <span class="warn">linked</span>.</p>
+                <p>... while in JavaScript, things aren't copied, but <span class="warn">linked</span> - we can also call it <span class="warn">delegation</span>.</p>
                 <img src="../img/prototypes.png"/>
             </section>
             <section>
@@ -328,6 +333,10 @@
             <section>
                 <h2>Inheritance</h2>
                 <img width="70%" src="../img/prototypes/3.jpg"/>
+            </section>
+            <section>
+                <h2>Inheritance</h2>
+                <img width="70%" src="../img/prototypes/chain.png"/>
             </section>
             <section>
                 <h2>Inheritance</h2>

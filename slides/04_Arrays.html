@@ -59,11 +59,11 @@
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                         const array = [1, 2, 3, 4, 5];
-                        const [one, two, three] = array;
+                        const [one, two, , ,five] = array;
 
                         console.log(one); // 1
                         console.log(two); // 2
-                        console.log(three); // 3
+                        console.log(five); // 5
                     </code>
                 </pre>
             </section>
@@ -87,6 +87,7 @@
                     const array = ['hello', 'array'];
 
                     const arrayish = {
+                        length: 2,
                         0: 'hello',
                         1: 'array'
                     };
@@ -94,7 +95,6 @@
                     array[4] = 'I am not out of bounds!';
 
                     console.log(arrayish[0]); // hello
-                    console.log(array[0]);    // hello
                     console.log(array[4]);    // I am not out of bounds!
                     console.log(array[5]);    // undefined
                     </code>
