@@ -1,2 +1,0 @@
-# JS Fundamentals - Exercises
-tbd
