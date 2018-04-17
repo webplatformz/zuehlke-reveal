@@ -8,10 +8,6 @@
   font-family: "Zuehlke";
   src: url("../../lib/font/zuehlke/zuehlke-webfont.eot?") format("eot"), url("../../lib/font/zuehlke/zuehlke-webfont.woff2") format("woff2"), url("../../lib/font/zuehlke/zuehlke-webfont.woff") format("woff"), url("../../lib/font/zuehlke/zuehlke-webfont.ttf") format("truetype"), url("../../lib/font/zuehlke/zuehlke-webfont.svg") format("svg"); }
 
-img {
-  border: none !important;
-  box-shadow: none !important; }
-
 .window-background .present {
   background-position-y: 0.5em; }
 
@@ -60,8 +56,10 @@ img {
 
 .reveal .slides section {
   padding: 0; }
-  .reveal .slides section h1, .reveal .slides section h2 {
+  .reveal .slides section h1, .reveal .slides section h2, .reveal .slides section h3 {
     font-weight: 800 !important; }
+    .reveal .slides section h1.margin-top, .reveal .slides section h2.margin-top, .reveal .slides section h3.margin-top {
+      margin-top: 20px; }
   .reveal .slides section h2 {
     margin-bottom: 0.8em !important;
     line-height: 1em !important; }
@@ -69,10 +67,36 @@ img {
       font-weight: normal;
       background: transparent; }
   .reveal .slides section img {
-    background: none !important; }
-  .reveal .slides section p {
+    background: none;
+    border: none;
+    box-shadow: none; }
+    .reveal .slides section img.portrait {
+      width: 50%;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4); }
+  .reveal .slides section p, .reveal .slides section q {
     line-height: 1.4em;
     margin-bottom: 1em; }
+  .reveal .slides section q::before, .reveal .slides section q::after {
+    content: none; }
+  .reveal .slides section q .text {
+    font-style: italic; }
+    .reveal .slides section q .text::before, .reveal .slides section q .text::after {
+      color: #FA9B1E;
+      font-size: 1.5em; }
+    .reveal .slides section q .text::before {
+      content: '«';
+      margin-right: .3em; }
+    .reveal .slides section q .text::after {
+      content: '»';
+      margin-left: .3em; }
+  .reveal .slides section q .author {
+    font-size: .8em;
+    display: block;
+    margin-top: 1em;
+    text-align: right;
+    font-style: normal; }
   .reveal .slides section ul, .reveal .slides section ol {
     margin-top: 0.5em !important;
     margin-bottom: 1em; }
@@ -195,6 +219,46 @@ img {
         background-color: #DE3E41; }
         .reveal .slides section .badge-container .badge.dont::before {
           content: "Don't"; }
+  .reveal .slides section .column-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .reveal .slides section .column-container .column, .reveal .slides section .column-container .column-3, .reveal .slides section .column-container .column-2, .reveal .slides section .column-container .bubble {
+      display: flex;
+      flex-direction: column; }
+      .reveal .slides section .column-container .column img, .reveal .slides section .column-container .column-3 img, .reveal .slides section .column-container .column-2 img, .reveal .slides section .column-container .bubble img {
+        max-width: 70%;
+        margin: auto; }
+    .reveal .slides section .column-container .column-3 {
+      width: 33.333333%;
+      max-width: 33.333333%; }
+    .reveal .slides section .column-container .column-2 {
+      width: 50%;
+      max-width: 50%; }
+    .reveal .slides section .column-container .bubble {
+      background-color: #ff820a;
+      color: white;
+      border-radius: 10px;
+      width: 45%;
+      max-width: 45%;
+      flex-grow: 0;
+      margin: 10px auto;
+      padding: 20px 10px;
+      justify-content: center;
+      align-items: center;
+      position: relative; }
+      .reveal .slides section .column-container .bubble .strike-through {
+        display: block;
+        position: absolute;
+        background: red;
+        width: 106%;
+        height: 10px;
+        border-radius: 5px;
+        transform: rotate(10deg);
+        opacity: .6;
+        top: calc(50% - 5px);
+        left: calc(0px - 3%); }
 
 .print-pdf .sub-section-slide h2 {
   opacity: 1; }
