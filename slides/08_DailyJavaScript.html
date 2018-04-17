@@ -124,8 +124,25 @@
         <section>
             <section>
                 <h2>"Modules"</h2>
-                <p>If you want to split your project into different files, it is convention to use IIFEs to add your modules to the appropriate scope.</p>
-                <p>Nowadays, however, it is common to use bundlers for this.</p>
+                <p><span class="warn">Pre-ES6:</span> If you want to split your project into different files, it is convention to use IIFEs to add your modules to the appropriate scope.</p>
+                <p>Nowadays, however, it is common to use ES6 modules / bundlers for this.</p>
+            </section>
+            <section>
+                <h2>ES6 Modules</h2>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        // calculator.js
+                        export const add = (a, b) => a + b;
+                        export const multiply = (a, b) => a * b;
+                    </code>
+                </pre>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        // app.js
+                        import { add } from './calculator';
+                        import * as Calculator from './calculator';
+                    </code>
+                </pre>
             </section>
         </section>
         <section>
@@ -134,6 +151,15 @@
             <p>Let's try to debug
                 <span class="code">my-button.js</span> by clicking it!</p>
             <button style="transform: scale(2)" onclick="onClickDebugButton(event)">Click Me!</button>
+        </section>
+        <section>
+            <section>
+                <h2>Can I use this?</h2>
+                <ul>
+                    <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">MDN</a></li>
+                    <li><a target="_blank" href="https://caniuse.com/">Caniuse.com</a></li>
+                </ul>
+            </section>
         </section>
         <section>
             <section>
