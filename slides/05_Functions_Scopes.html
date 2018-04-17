@@ -92,6 +92,65 @@
         </section>
         <section>
             <section>
+                <h2>Rest Parameters</h2>
+                <p>turns n parameters into an array</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function sum(...theArgs) {
+                      return theArgs.reduce((previous, current) => {
+                        return previous + current;
+                      });
+                    }
+
+                    console.log(sum(1, 2, 3)); // 6
+                    console.log(sum(1, 2, 3, 4)); // 10
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Spread Syntax</h2>
+                <p>Expands arrays or objects</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function sum(x, y, z) {
+                        return x + y + z;
+                    }
+
+                    const numbers = [1, 2, 3];
+
+                    console.log(sum(...numbers)); // 6
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Spread Syntax</h2>
+                <p>Expands arrays or objects</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    var dateFields = [1970, 0, 1];  // 1 Jan 1970
+                    var d = new Date(...dateFields);
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Rest & Spread</h2>
+                <p>What happens here?</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function printValues(...values) {
+                        console.log(values.length);
+                    }
+
+                    const values = ['a', 'b', 'c'];
+
+                    printValues(values); // ?
+                    printValues(...values); // ?
+                </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
                 <h2>Scope</h2>
                 <p>JavaScript has a <span class="warn">Global Scope</span> and <span
                         class="warn">Function/Local Scope</span></p>
@@ -185,7 +244,11 @@
             </section>
             <section>
                 <h2>Try it yourself</h2>
-                <p data-height="412" data-theme-id="0" data-slug-hash="gegNqO" data-default-tab="js,result" data-user="enpayne" data-embed-version="2" data-pen-title="IIFE Modules" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/enpayne/pen/gegNqO/">IIFE Modules</a> by Nick Payne (<a href="https://codepen.io/enpayne">@enpayne</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                <p data-height="412" data-theme-id="0" data-slug-hash="gegNqO" data-default-tab="js,result"
+                   data-user="enpayne" data-embed-version="2" data-pen-title="IIFE Modules" data-editable="true"
+                   class="codepen">See the Pen <a href="https://codepen.io/enpayne/pen/gegNqO/">IIFE Modules</a> by Nick
+                    Payne (<a href="https://codepen.io/enpayne">@enpayne</a>) on <a
+                            href="https://codepen.io">CodePen</a>.</p>
                 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
             </section>
         </section>
