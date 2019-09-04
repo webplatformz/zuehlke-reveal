@@ -219,7 +219,7 @@ body {
     visibility: hidden;
     opacity: 0;
     -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent; }
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
   .reveal .controls .controls-arrow:before,
   .reveal .controls .controls-arrow:after {
     content: '';
@@ -411,7 +411,8 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  touch-action: none; }
+  -ms-touch-action: none;
+      touch-action: none; }
 
 @media only screen and (orientation: landscape) {
   .reveal.ua-iphone {
@@ -887,7 +888,7 @@ body {
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -914,10 +915,12 @@ body {
   max-height: none;
   top: 0;
   left: 0;
-  object-fit: cover; }
+  -o-object-fit: cover;
+     object-fit: cover; }
 
 .reveal .slide-background[data-background-size="contain"] video {
-  object-fit: contain; }
+  -o-object-fit: contain;
+     object-fit: contain; }
 
 /* Immediate transition style */
 .reveal[data-background-transition=none] > .backgrounds .slide-background,
@@ -1183,6 +1186,7 @@ body {
 
 .reveal .overlay .viewport {
   position: absolute;
+  display: -ms-flexbox;
   display: flex;
   top: 40px;
   right: 0;
@@ -1264,7 +1268,7 @@ body {
   z-index: 30;
   cursor: pointer;
   transition: all 400ms ease;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 .reveal.overview .playback {
   opacity: 0;
