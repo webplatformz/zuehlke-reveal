@@ -97,7 +97,7 @@ module.exports = grunt => {
 					require: false
 				}
 			},
-			files: [ 'Gruntfile.js', 'js/reveal.js' ]
+			files: [ 'gruntfile.js', 'js/reveal.js' ]
 		},
 
 		connect: {
@@ -129,7 +129,7 @@ module.exports = grunt => {
 
 		watch: {
 			js: {
-				files: [ 'Gruntfile.js', 'js/reveal.js' ],
+				files: [ 'gruntfile.js', 'js/reveal.js' ],
 				tasks: 'js'
 			},
 			theme: {
